@@ -104,252 +104,294 @@
 
     <!-- Main Content -->
     <section id="resources" class="py-16 bg-slate-50">
-      <div class="container mx-auto px-4 md:px-8 max-w-5xl">
-
-        <!-- Sillabus -->
-        <div class="mb-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-400 flex items-center justify-center shadow-md">
-              <i class="bx bx-spreadsheet text-white text-lg"></i>
+      <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+        <div class="mb-10">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Materiallar bo‘limi</h2>
+              <p class="text-slate-500 mt-1 text-sm md:text-base">Laboratoriya, mavzular va testlar — hammasi bir joyda.</p>
             </div>
-            <h2 class="text-2xl font-extrabold text-slate-900">Sillabus</h2>
+            <div class="w-full md:w-[420px]">
+              <label class="sr-only" for="material-search">Materiallarni qidirish</label>
+              <div class="relative">
+                <i class="bx bx-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                <input id="material-search" type="text" placeholder="Qidirish: masalan, “3-mavzu”, “lab”, “TTM”..."
+                  class="w-full pl-12 pr-12 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition" />
+                <button id="material-search-clear" type="button"
+                  class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl hover:bg-slate-100 text-slate-500 transition flex items-center justify-center"
+                  aria-label="Qidiruvni tozalash">
+                  <i class="bx bx-x text-2xl"></i>
+                </button>
+              </div>
+              <p id="material-search-meta" class="text-xs text-slate-400 mt-2">Qidiruv natijalari shu sahifada filtrlab ko‘rsatiladi.</p>
+            </div>
           </div>
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden group">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bx bx-file text-orange-500"></i> Sillabus</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <ul class="px-6 py-4 space-y-2 border-t border-slate-100">
-              <li>
-                <a href="assets/libs/maruzalar/Sillabus 2024 - 25 (UZB).docx" download
-                  class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item">
-                  <i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>Sillabus 2024-25
-                </a>
-              </li>
-            </ul>
-          </details>
         </div>
 
-        <!-- Laboratoriya -->
-        <div class="mb-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-md">
-              <i class="bx bxs-flask text-white text-lg"></i>
-            </div>
-            <h2 class="text-2xl font-extrabold text-slate-900">Laboratoriya ishlari</h2>
-          </div>
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bx bxs-flask text-violet-500"></i> Laboratoriya ishlari (6 ta)</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <ul class="px-6 py-4 space-y-1 border-t border-slate-100">
-              <li><a href="assets/libs/labaratoriya/1-2-Labaratoriya ishi.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>1-Laboratoriya: Kirish</a></li>
-              <li><a href="assets/libs/labaratoriya/3-Labaratoriya ishi.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>2-Laboratoriya: Elektr zanjirlar</a></li>
-              <li><a href="assets/libs/labaratoriya/4-Labaratoriya ishi.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>3-Laboratoriya: Yarimo'tkazgichlar</a></li>
-              <li><a href="assets/libs/labaratoriya/5-Labaratoriya ishi.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>4-Laboratoriya: Tranzistorlar</a></li>
-              <li><a href="assets/libs/labaratoriya/6-Labaratoriya ishi.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>5-Laboratoriya: Mantiqiy sxemalar</a></li>
-              <li><a href="assets/libs/labaratoriya/7-Labaratoriya ishi.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>6-Laboratoriya: Raqamli elektronika</a></li>
-            </ul>
-          </details>
-        </div>
-
-        <!-- Maruzalar -->
-        <div class="mb-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-md">
-              <i class="bx bx-book-open text-white text-lg"></i>
-            </div>
-            <h2 class="text-2xl font-extrabold text-slate-900">Maruzalar</h2>
-          </div>
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bx bx-book-open text-blue-500"></i> O'zbek tili maruzalari (21 ta)</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <ul class="px-6 py-4 space-y-1 border-t border-slate-100">
-              <li><a href="assets/libs/maruzalar/1-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>1-Maruza: Elektronika va sxemalar kirish</a></li>
-              <li><a href="assets/libs/maruzalar/2 - 3- maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>2-Maruza: Elektr zanjirlar va asosiy qonunlar</a></li>
-              <li><a href="assets/libs/maruzalar/2 - 3- maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>3-Maruza: O'zgaruvchan tok zanjirlari</a></li>
-              <li><a href="assets/libs/maruzalar/4 - maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>4-Maruza: Yarimo'tkazgich elementlar</a></li>
-              <li><a href="assets/libs/maruzalar/5 -maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>5-Maruza: Diodlar va to'g'irlagichlar</a></li>
-              <li><a href="assets/libs/maruzalar/6.-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>6-Maruza: Tranzistorlar</a></li>
-              <li><a href="assets/libs/maruzalar/7..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>7-Maruza: Kuchaytirgichlar</a></li>
-              <li><a href="assets/libs/maruzalar/8.-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>8-Maruza: Operatsion kuchaytirgichlar</a></li>
-              <li><a href="assets/libs/maruzalar/9.-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>9-Maruza: Mantiqiy elementlar</a></li>
-              <li><a href="assets/libs/maruzalar/10.-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>10-Maruza: Triggerlar</a></li>
-              <li><a href="assets/libs/maruzalar/11.-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>11-Maruza: Registrlar va hisoblagichlar</a></li>
-              <li><a href="assets/libs/maruzalar/12..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>12-Maruza: Xotira qurilmalari</a></li>
-              <li><a href="assets/libs/maruzalar/13..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>13-Maruza: Raqamli-analog o'zgartirgichlar</a></li>
-              <li><a href="assets/libs/maruzalar/14..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>14-Maruza: Mikrokontrollerlar asoslari</a></li>
-              <li><a href="assets/libs/maruzalar/15..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>15-Maruza: Sensor va aktyuatorlar</a></li>
-              <li><a href="assets/libs/maruzalar/16..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>16-Maruza: Impuls manbalari</a></li>
-              <li><a href="assets/libs/maruzalar/17..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>17-Maruza: Filtrlar</a></li>
-              <li><a href="assets/libs/maruzalar/18..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>18-Maruza: Generatorlar</a></li>
-              <li><a href="assets/libs/maruzalar/19..-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>19-Maruza: Modulyatsiya va demodulyatsiya</a></li>
-              <li><a href="assets/libs/maruzalar/20 -maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>20-Maruza: Aloqa qurilmalari</a></li>
-              <li><a href="assets/libs/maruzalar/21-maruza.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>21-Maruza: Zamonaviy elektronika ilovalari</a></li>
-            </ul>
-          </details>
-        </div>
-
-        <!-- Resurslar -->
-        <div class="mb-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-md">
-              <i class="bx bx-library text-white text-lg"></i>
-            </div>
-            <h2 class="text-2xl font-extrabold text-slate-900">Resurslar</h2>
-          </div>
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bx bx-library text-emerald-500"></i> O'quv qo'llanmalar (5 ta)</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <ul class="px-6 py-4 space-y-1 border-t border-slate-100">
-              <li><a href="assets/libs/resources/MAJMUA_EMVaT_READY++++++.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>Majmua: Elektronika va Sxemalar</a></li>
-              <li><a href="assets/libs/resources/Elektr va magnetizm. Kamolov J, Ismoilov I.pdf" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>Majmua: Elektr va magnetizm</a></li>
-              <li><a href="assets/libs/resources/elektrodinamika fure.pdf" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>Majmua: Elektrodinamika</a></li>
-              <li><a href="assets/libs/resources/EMM_va_T_Oquv_lotin.pdf" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>Majmua: Elektronika o'quv qo'llanma</a></li>
-              <li><a href="assets/libs/resources/Savelev_Умумий_физика_2тўп.pdf" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>Majmua: Umumiy fizika</a></li>
-            </ul>
-          </details>
-        </div>
-
-        <!-- Ruscha materiallar -->
-        <div class="mb-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-md">
-              <i class="bx bx-globe text-white text-lg"></i>
-            </div>
-            <h2 class="text-2xl font-extrabold text-slate-900">Ruscha materiallar</h2>
-          </div>
-
-          <!-- Rus maruzalar -->
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden mb-3">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bx bx-book text-rose-500"></i> Лекции (22 та)</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <ul class="px-6 py-4 space-y-1 border-t border-slate-100">
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№1.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>1-Лекция: Введение в электромагнитные поля</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№2.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>2-Лекция: Электростатическое поле</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№3.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>3-Лекция: Проводники в электростатическом поле</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№4.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>4-Лекция: Диэлектрики в электростатическом поле</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№5.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>5-Лекция: Энергия электростатического поля</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№6.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>6-Лекция: Постоянный электрический ток</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№7.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>7-Лекция: Магнитное поле постоянного тока</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№8.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>8-Лекция: Магнитное поле в веществе</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№9.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>9-Лекция: Электромагнитная индукция</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№10.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>10-Лекция: Индуктивность и взаимная индуктивность</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№11.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>11-Лекция: Энергия магнитного поля</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№12.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>12-Лекция: Переменный электрический ток</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№13.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>13-Лекция: Электромагнитные колебания</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№14.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>14-Лекция: Уравнения Максвелла</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№15.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>15-Лекция: Электромагнитные волны</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№16.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>16-Лекция: Распространение волн в различных средах</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№17.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>17-Лекция: Излучение электромагнитных волн</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№18.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>18-Лекция: Волноводы и резонаторы</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№19.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>19-Лекция: Антенны и их характеристики</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№20.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>20-Лекция: Электромагнитная совместимость</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№21.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>21-Лекция: Современные приложения</a></li>
-              <li><a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№22.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>22-Лекция: Перспективы развития электромагнитной теории</a></li>
-            </ul>
-          </details>
-
-          <!-- Rus lab ishlari -->
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden mb-3">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bxs-flask bx text-rose-500"></i> Лабораторные работы (15 та)</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <ul class="px-6 py-4 space-y-1 border-t border-slate-100">
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№1.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>1-Лабораторная работа: Основы измерений</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№2.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>2-Лабораторная работа: Электростатическое поле</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№3.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>3-Лабораторная работа: Проводники и диэлектрики</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№4.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>4-Лабораторная работа: Постоянный ток</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№5.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>5-Лабораторная работа: Магнитное поле</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№6.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>6-Лабораторная работа: Электромагнитная индукция</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№7.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>7-Лабораторная работа: Уравнения Максвелла</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№8.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>8-Лабораторная работа: Электромагнитные волны</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№9.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>9-Лабораторная работа: Интерференция волн</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№10.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>10-Лабораторная работа: Дифракция волн</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№11.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>11-Лабораторная работа: Поляризация волн</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№12.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>12-Лабораторная работа: Волноводы</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№13.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>13-Лабораторная работа: Резонаторы</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№14.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>14-Лабораторная работа: Антенны</a></li>
-              <li><a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№15.docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>15-Лабораторная работа: Электромагнитная совместимость</a></li>
-            </ul>
-          </details>
-
-          <!-- Sirtqilar uchun -->
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bx bx-user text-rose-500"></i> Sirtqilar uchun materiallar</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <div class="px-6 py-4 space-y-3 border-t border-slate-100">
-              <details class="bg-slate-50 rounded-xl overflow-hidden">
-                <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-medium text-slate-700 text-sm">
-                  <span>Лекции (6 та)</span>
-                  <i class="bx bx-chevron-down text-slate-400 chevron text-lg"></i>
-                </summary>
-                <ul class="px-4 py-2 space-y-1 border-t border-slate-200">
-                  <li><a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№1.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>1-Лекция: Основы электромагнетизма</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№2.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>2-Лекция: Электростатическое поле</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№3.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>3-Лекция: Магнитное поле</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№4.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>4-Лекция: Электромагнитная индукция</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№5.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>5-Лекция: Электромагнитные волны</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№6.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>6-Лекция: Прикладная электродинамика</a></li>
-                </ul>
-              </details>
-              <details class="bg-slate-50 rounded-xl overflow-hidden">
-                <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-medium text-slate-700 text-sm">
-                  <span>Лабораторные работы (3 та)</span>
-                  <i class="bx bx-chevron-down text-slate-400 chevron text-lg"></i>
-                </summary>
-                <ul class="px-4 py-2 space-y-1 border-t border-slate-200">
-                  <li><a href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№1.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>1-Лабораторная работа: Измерение электрических величин</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№2.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>2-Лабораторная работа: Исследование магнитного поля</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№3.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>3-Лабораторная работа: Изучение электромагнитных волн</a></li>
-                </ul>
-              </details>
-              <details class="bg-slate-50 rounded-xl overflow-hidden">
-                <summary class="flex items-center justify-between px-4 py-3 cursor-pointer font-medium text-slate-700 text-sm">
-                  <span>Самостоятельные работы (3 та)</span>
-                  <i class="bx bx-chevron-down text-slate-400 chevron text-lg"></i>
-                </summary>
-                <ul class="px-4 py-2 space-y-1 border-t border-slate-200">
-                  <li><a href="assets/libs/rus-materials/sirtqi/Сам_раб_000.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>1-Самостоятельная работа: Расчет электрических полей</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/Сам_раб_№1.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>2-Самостоятельная работа: Расчет магнитных полей</a></li>
-                  <li><a href="assets/libs/rus-materials/sirtqi/Сам_раб_№2.docx" download class="flex items-center gap-2 text-slate-600 hover:text-orange-600 px-2 py-1.5 rounded-lg transition text-sm"><i class="bx bx-download text-orange-400 text-base"></i>3-Самостоятельная работа: Расчет параметров волн</a></li>
-                </ul>
-              </details>
-            </div>
-          </details>
-        </div>
-
-        <!-- Testlar -->
-        <div class="mb-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center shadow-md">
-              <i class="bx bx-check-square text-white text-lg"></i>
-            </div>
-            <h2 class="text-2xl font-extrabold text-slate-900">Testlar</h2>
-          </div>
-          <details class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-700">
-              <span class="flex items-center gap-2"><i class="bx bx-check-circle text-amber-500"></i> Test materiallari</span>
-              <i class="bx bx-chevron-down text-slate-400 chevron text-xl"></i>
-            </summary>
-            <ul class="px-6 py-4 space-y-1 border-t border-slate-100">
-              <li><a href="assets/libs/tests/EMvaT_TEST_UZ (200 ta ).docx" download class="flex items-center gap-3 text-slate-600 hover:text-orange-600 hover:bg-orange-50 px-3 py-2 rounded-xl transition-all text-sm font-medium group/item"><i class="bx bx-download text-orange-400 group-hover/item:text-orange-600 text-lg"></i>1-Test: Elektronika va sxemalar (200 ta savol)</a></li>
-            </ul>
-          </details>
-        </div>
-
+        <div id="material-shortcuts" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10"></div>
+        <div id="material-sections" class="space-y-5"></div>
       </div>
     </section>
+
+    <script>
+      const materialData = [
+        {
+          id: "lab1",
+          title: "Lab 1",
+          subtitle: "Laboratoriya ishlari",
+          icon: "bxs-flask",
+          accent: "from-violet-500 to-purple-600",
+          iconBg: "bg-violet-500/15",
+          path: "assets/libs/lab1",
+          files: [
+            "1-lab.docx",
+            "2-lab.docx",
+            "3-lab.docx",
+            "4-lab.docx",
+            "5-lab.docx",
+            "6-lab.docx",
+            "7-lab.docx",
+            "8-lab.docx",
+            "9-lab.docx",
+            "10-lab.docx",
+            "11-lab.docx",
+            "12-lab.docx",
+            "13-lab.docx",
+            "14-lab.docx",
+            "15-lab.docx",
+          ],
+        },
+        {
+          id: "lab2",
+          title: "Lab 2",
+          subtitle: "Amaliy topshiriqlar (MAVZU)",
+          icon: "bx-test-tube",
+          accent: "from-sky-500 to-cyan-500",
+          iconBg: "bg-sky-500/15",
+          path: "assets/libs/lab2",
+          files: [
+            "1-MAVZU.IMS TAYYORLASH TEXNOLOGIYASI VA KLASSIFIKATSIYASI BILAN TANISHISH..docx",
+            "2-MAVZU.BT DA YASALGAN UE  KUCHAYTIRGICH SXEMASINI TADQIQ ETISH.docx",
+            "3-MAVZU.MTda YASALGAN KUCHAYTIRGICH SXEMASINI TADQIQ ETISH..docx",
+            "4-MAVZU.BTda YASALGAN BARQAROR TOK GEBERATORINI TADQIQ ETISH..docx",
+            "5-MAVZU.EMMITTER QAYTARGICH SXEMASINI TADQIQ ETISH..docx",
+            "6-MAVZU.OPERATSION KUCHAYTIRGICH PARAMETRLARINI TADQIQ ETISH.docx",
+            "7-MAVZU.OPERATSION KUCHAYTIRGICH ASOSIDAGI ANALOG QURILMALARNI TADQIQ ETISH..docx",
+            "8-MAVZU.BIPOLYAR TRANZISTORDA YASALGAN KALITNI UZATISH XARAKTERISTIKASINI TADQIQ ETISH..docx",
+            "9-MAVZU.MTlarda YASALGAN KALIT SXEMALARINI TADQIQ ETISH..docx",
+            "10-MAVZU.TTM INTEGRAL SXEMASINI TADQIQ ETISH.docx",
+            "11-MAVZU.MDYa TRANZISTORLARDAGI MANTIQIY ELEMENTLARNI TADQIQ ETISH..docx",
+            "12-MAVZU.MDYa TRANZISTORLARDAGI MANTIQIY ELEMENTLARNI TADQIQ ETISH..docx",
+            "13-MAVZU.IMS OPTRONLARNI   TADQIQ ETISH..docx",
+          ],
+        },
+        {
+          id: "mavzular1",
+          title: "Mavzular 1",
+          subtitle: "Nazariy materiallar",
+          icon: "bx-book-open",
+          accent: "from-orange-500 to-amber-500",
+          iconBg: "bg-orange-500/15",
+          path: "assets/libs/maruzalar1",
+          files: [
+            "1-mavzu..docx",
+            "2-mavzu.docx",
+            "3-mavzu.docx",
+            "4-mavzu.docx",
+            "5-mavzu.docx",
+            "6-mavzu.docx",
+            "7-mavzu.docx",
+            "8-mavzu.docx",
+            "9-mavzu.docx",
+            "10-mavzu.docx",
+            "11-mavzu.docx",
+            "12-mavzu.docx",
+            "13-mavzu.docx",
+            "14-mavzu.docx",
+            "15-mavzu.docx",
+            "16-mavzu.docx",
+            "17-mavzu.docx",
+            "18-mavzu.docx",
+          ],
+        },
+        {
+          id: "mavzular2",
+          title: "Mavzular 2",
+          subtitle: "Davomi (2-qism)",
+          icon: "bx-book-open",
+          accent: "from-emerald-500 to-teal-600",
+          iconBg: "bg-emerald-500/15",
+          path: "assets/libs/maruzalar2",
+          files: [
+            "1-mavzu.docx",
+            "2-mavzu.docx",
+            "3-mavzu.docx",
+            "4-mavzu.docx",
+            "5-mavzu.docx",
+            "6-mavzu.docx",
+            "7-mavzu.docx",
+            "8-mavzu.docx",
+            "9-mavzu.docx",
+            "10-mavzu.docx",
+            "11-mavzu.docx",
+            "12-mavzu.docx",
+            "13-mavzu.docx",
+            "14-mavzu.docx",
+            "15-mavzu.docx",
+            "16-mavzu.docx",
+            "17-mavzu.docx",
+            "18-mavzu.docx",
+            "19-mavzu.docx",
+          ],
+        },
+        {
+          id: "test1",
+          title: "Test 1",
+          subtitle: "Nazorat savollari",
+          icon: "bx-check-circle",
+          accent: "from-amber-500 to-yellow-500",
+          iconBg: "bg-amber-500/15",
+          path: "assets/libs",
+          files: ["test1.doc"],
+        },
+        {
+          id: "test2",
+          title: "Test 2",
+          subtitle: "Nazorat savollari",
+          icon: "bx-check-circle",
+          accent: "from-rose-500 to-red-600",
+          iconBg: "bg-rose-500/15",
+          path: "assets/libs",
+          files: ["test2.doc"],
+        },
+      ]
+
+      const shortcutsEl = document.getElementById("material-shortcuts")
+      const sectionsEl = document.getElementById("material-sections")
+      const searchInput = document.getElementById("material-search")
+      const clearBtn = document.getElementById("material-search-clear")
+      const metaEl = document.getElementById("material-search-meta")
+
+      const prettifyFileName = (fileName) => {
+        const noExt = fileName.replace(/\.(docx|doc)$/i, "")
+        return noExt
+          .replace(/[_]+/g, " ")
+          .replace(/\s{2,}/g, " ")
+          .replace(/\.\.+/g, ".")
+          .trim()
+      }
+
+      const buildHref = (basePath, fileName) => `${basePath}/${encodeURIComponent(fileName)}`
+
+      const renderShortcuts = () => {
+        shortcutsEl.innerHTML = materialData.map((c) => `
+          <a href="#mat-${c.id}"
+            class="group bg-white rounded-3xl p-6 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-2xl ${c.iconBg} flex items-center justify-center shrink-0">
+                  <i class="bx ${c.icon} text-xl text-slate-800"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-lg font-extrabold text-slate-900">${c.title}</h3>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-500">${c.files.length} ta</span>
+                  </div>
+                  <p class="text-slate-500 text-sm mt-0.5">${c.subtitle}</p>
+                </div>
+              </div>
+              <div class="w-10 h-10 rounded-2xl bg-gradient-to-br ${c.accent} flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                <i class="bx bx-right-arrow-alt text-white text-2xl"></i>
+              </div>
+            </div>
+          </a>
+        `).join("")
+      }
+
+      const renderSections = () => {
+        sectionsEl.innerHTML = materialData.map((c) => `
+          <section id="mat-${c.id}" class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden" data-category="${c.id}">
+            <div class="px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br ${c.accent} flex items-center justify-center shadow-md">
+                  <i class="bx ${c.icon} text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-extrabold text-slate-900">${c.title}</h3>
+                  <p class="text-slate-500 text-sm">${c.subtitle}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600" data-category-count="${c.id}">
+                  ${c.files.length} ta fayl
+                </span>
+                <a href="#resources"
+                  class="inline-flex items-center gap-1.5 text-orange-600 hover:text-orange-700 text-sm font-semibold px-3 py-2 rounded-xl hover:bg-orange-50 transition">
+                  <i class="bx bx-up-arrow-alt text-lg"></i> Yuqoriga
+                </a>
+              </div>
+            </div>
+            <div class="border-t border-slate-100 px-6 py-5">
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                ${c.files.map((f) => `
+                  <a href="${buildHref(c.path, f)}" download
+                    class="material-item group flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-slate-200 hover:border-orange-200 hover:bg-orange-50 transition"
+                    data-search="${(c.title + " " + c.subtitle + " " + f).toLowerCase()}">
+                    <span class="flex items-center gap-3 min-w-0">
+                      <span class="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-white flex items-center justify-center shrink-0 transition">
+                        <i class="bx bx-download text-slate-600 group-hover:text-orange-600 text-lg transition"></i>
+                      </span>
+                      <span class="min-w-0">
+                        <span class="block text-sm font-semibold text-slate-800 truncate">${prettifyFileName(f)}</span>
+                        <span class="block text-xs text-slate-400 truncate">${f}</span>
+                      </span>
+                    </span>
+                    <i class="bx bx-chevron-right text-slate-300 group-hover:text-orange-400 text-xl transition shrink-0"></i>
+                  </a>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+        `).join("")
+      }
+
+      const applyFilter = (q) => {
+        const query = (q || "").trim().toLowerCase()
+        const items = document.querySelectorAll(".material-item")
+        let visibleCount = 0
+        items.forEach((el) => {
+          const hay = el.getAttribute("data-search") || ""
+          const show = !query || hay.includes(query)
+          el.classList.toggle("hidden", !show)
+          if (show) visibleCount++
+        })
+
+        materialData.forEach((c) => {
+          const section = document.querySelector(`[data-category="${c.id}"]`)
+          if (!section) return
+          const sectionItems = section.querySelectorAll(".material-item")
+          const visibleInSection = Array.from(sectionItems).filter((el) => !el.classList.contains("hidden")).length
+          const badge = section.querySelector(`[data-category-count="${c.id}"]`)
+          if (badge) badge.textContent = `${visibleInSection} ta fayl`
+          section.classList.toggle("hidden", visibleInSection === 0)
+        })
+
+        clearBtn.classList.toggle("hidden", query.length === 0)
+        metaEl.textContent = query
+          ? `Topildi: ${visibleCount} ta fayl.`
+          : "Qidiruv natijalari shu sahifada filtrlab ko‘rsatiladi."
+      }
+
+      renderShortcuts()
+      renderSections()
+
+      searchInput.addEventListener("input", (e) => applyFilter(e.target.value))
+      clearBtn.addEventListener("click", () => {
+        searchInput.value = ""
+        searchInput.focus()
+        applyFilter("")
+      })
+    </script>
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-white pt-14 pb-8 border-t border-white/5">
