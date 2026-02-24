@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/modern.css" />
@@ -161,7 +160,7 @@
       <div class="section-divider"></div>
       <div class="modern-card p-10 mt-8">
         <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-indigo-100">
-          <img src="assets/images/about-avatar.jpg" alt="Umurzokova Sevinch" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-white text-4xl font-black\'>S</div>'" />
+          <img src="assets/images/about-avatar.jpg" alt="Umurzokova Sevinch" class="w-full h-full object-cover" id="author-avatar" onerror="(function(img){var d=document.createElement('div');d.className='w-full h-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-white text-4xl font-black';d.textContent='S';img.parentNode.replaceChild(d,img);})(this)" />
         </div>
         <h3 class="text-2xl font-bold text-gray-900 mb-2">Umurzokova Sevinch Komiljonovna</h3>
         <p class="text-indigo-600 font-semibold mb-1">TT 22-11 guruhi</p>
