@@ -160,7 +160,7 @@
       <div class="section-divider"></div>
       <div class="modern-card p-10 mt-8">
         <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-6 ring-4 ring-indigo-100">
-          <img src="assets/images/about-avatar.jpg" alt="Umurzokova Sevinch" class="w-full h-full object-cover" id="author-avatar" onerror="(function(img){var d=document.createElement('div');d.className='w-full h-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-white text-4xl font-black';d.textContent='S';img.parentNode.replaceChild(d,img);})(this)" />
+          <img src="assets/images/about-avatar.jpg" alt="Umurzokova Sevinch" class="w-full h-full object-cover" id="author-avatar" onerror="avatarFallback(this)" />
         </div>
         <h3 class="text-2xl font-bold text-gray-900 mb-2">Umurzokova Sevinch Komiljonovna</h3>
         <p class="text-indigo-600 font-semibold mb-1">TT 22-11 guruhi</p>
@@ -233,6 +233,13 @@
     });
   </script>
   <script>
+    function avatarFallback(img) {
+      var d = document.createElement('div');
+      d.className = 'w-full h-full flex items-center justify-center text-white text-4xl font-black';
+      d.style.background = 'linear-gradient(135deg,#818cf8,#a855f7)';
+      d.textContent = 'S';
+      img.parentNode.replaceChild(d, img);
+    }
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
