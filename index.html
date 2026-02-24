@@ -25,8 +25,10 @@
       }
     </script>
     <style>
-      .nav-link::after { content:''; display:block; height:2px; width:0; background:#f97316; transition:width 0.3s ease; border-radius:9999px; }
-      .nav-link:hover::after { width:100%; }
+      .nav-link { position:relative; overflow:hidden; border-radius:9999px; transition:color 0.25s ease, background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+      .nav-link::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at top,rgba(249,115,22,0.18),transparent 55%); opacity:0; transform:scale(0.8); transition:opacity 0.3s ease, transform 0.3s ease; pointer-events:none; }
+      .nav-link:hover::after { opacity:1; transform:scale(1.05); }
+      .nav-link:hover { transform:translateY(-1px); box-shadow:0 18px 45px -18px rgba(15,23,42,0.9); }
       .gradient-text { background:linear-gradient(135deg,#f97316,#fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
       .card-glow:hover { box-shadow:0 20px 60px -10px rgba(249,115,22,0.25); }
       .hero-pattern { background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.08) 1px,transparent 0); background-size:40px 40px; }
