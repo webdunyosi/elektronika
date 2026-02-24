@@ -5,63 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elektronika va Sxemalar - Elektron Darslik</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+            animation: { 'float': 'float 6s ease-in-out infinite' },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .nav-link::after { content:''; display:block; height:2px; width:0; background:#f97316; transition:width 0.3s ease; border-radius:9999px; }
+      .nav-link:hover::after { width:100%; }
+      .gradient-text { background:linear-gradient(135deg,#f97316,#fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+      .card-glow:hover { box-shadow:0 20px 60px -10px rgba(249,115,22,0.25); }
+      .hero-pattern { background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.08) 1px,transparent 0); background-size:40px 40px; }
+      .stat-card { background:linear-gradient(135deg,rgba(249,115,22,0.1),rgba(251,191,36,0.05)); border:1px solid rgba(249,115,22,0.2); }
+    </style>
   </head>
-  <body class="font-sans bg-gray-100 text-gray-800">
+  <body class="font-sans bg-slate-50 text-slate-800 antialiased">
+
     <!-- Navigation -->
-    <nav
-      class="sticky top-0 left-0 right-0 bg-gray-800 py-2 md:py-0 px-5 lg:px-10 shadow-lg z-50 flex justify-between items-center"
-    >
-      <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
-        <a
-          href="index.html"
-          class="text-white text-lg font-bold flex items-center"
-        >
-          <i class="bx bx-home text-2xl mr-2"></i> Elektronika
-        </a>
-        <button
-          id="menu-toggle"
-          class="text-white md:hidden focus:outline-none absolute right-10"
-        >
-          <i id="menu-icon" class="bx bx-menu text-2xl"></i>
-        </button>
+    <nav class="sticky top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-white/10 shadow-xl">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-amber-400 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:shadow-orange-500/50 transition-all duration-300">
+              <i class="bx bx-chip text-white text-xl"></i>
+            </div>
+            <span class="text-white font-bold text-lg tracking-tight">Elektron<span class="gradient-text">ika</span></span>
+          </a>
+          <ul class="hidden md:flex items-center gap-1">
+            <li><a href="index.html" class="nav-link flex items-center gap-1.5 text-white px-3 py-2 rounded-lg bg-white/10 text-sm font-medium"><i class="bx bx-home text-base"></i> Bosh sahifa</a></li>
+            <li><a href="material.html" class="nav-link flex items-center gap-1.5 text-white/70 hover:text-white px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm font-medium"><i class="bx bx-file text-base"></i> Materiallar</a></li>
+            <li><a href="video.html" class="nav-link flex items-center gap-1.5 text-white/70 hover:text-white px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm font-medium"><i class="bx bx-video text-base"></i> Video darslar</a></li>
+            <li><a href="about.html" class="nav-link flex items-center gap-1.5 text-white/70 hover:text-white px-3 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm font-medium"><i class="bx bx-info-circle text-base"></i> Haqida</a></li>
+          </ul>
+          <button id="menu-toggle" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-all">
+            <i id="menu-icon" class="bx bx-menu text-2xl"></i>
+          </button>
+        </div>
       </div>
-      <ul
-        id="menu"
-        class="absolute top-full left-0 w-full bg-gray-800 text-white flex-col space-y-2 px-4 py-4 opacity-0 pointer-events-none md:pointer-events-auto md:opacity-100 justify-end hidden md:flex md:static md:flex-row md:space-y-0 md:space-x-4 md:mt-0 md:bg-transparent transition-all duration-300 transform md:translate-y-0 -translate-y-2 z-40"
-      >
-        <li>
-          <a
-            href="index.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-home mr-2"></i> Bosh sahifa</a
-          >
-        </li>
-        <li>
-          <a
-            href="material.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-file mr-2"></i> Materiallar</a
-          >
-        </li>
-        <li>
-          <a
-            href="video.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-video mr-2"></i> Video darslar</a
-          >
-        </li>
-        <li>
-          <a
-            href="about.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-info-circle mr-2"></i> Haqida</a
-          >
-        </li>
+      <ul id="menu" class="md:hidden hidden border-t border-white/10 bg-slate-900/98 px-4 py-3 space-y-1">
+        <li><a href="index.html" class="flex items-center gap-2 text-white px-4 py-2.5 rounded-xl bg-orange-500/20 text-sm font-medium"><i class="bx bx-home"></i> Bosh sahifa</a></li>
+        <li><a href="material.html" class="flex items-center gap-2 text-white/70 hover:text-white px-4 py-2.5 rounded-xl hover:bg-white/10 transition text-sm font-medium"><i class="bx bx-file"></i> Materiallar</a></li>
+        <li><a href="video.html" class="flex items-center gap-2 text-white/70 hover:text-white px-4 py-2.5 rounded-xl hover:bg-white/10 transition text-sm font-medium"><i class="bx bx-video"></i> Video darslar</a></li>
+        <li><a href="about.html" class="flex items-center gap-2 text-white/70 hover:text-white px-4 py-2.5 rounded-xl hover:bg-white/10 transition text-sm font-medium"><i class="bx bx-info-circle"></i> Haqida</a></li>
       </ul>
     </nav>
 
@@ -69,378 +68,301 @@
       const menuToggle = document.getElementById("menu-toggle")
       const menu = document.getElementById("menu")
       const menuIcon = document.getElementById("menu-icon")
-
       menuToggle.addEventListener("click", () => {
-        const isHidden = menu.classList.contains("opacity-0")
-
-        if (isHidden) {
-          menu.classList.remove(
-            "opacity-0",
-            "pointer-events-none",
-            "-translate-y-2",
-            "hidden"
-          )
-          menu.classList.add("opacity-100", "translate-y-0")
-          menuIcon.classList.remove("bx-menu")
-          menuIcon.classList.add("bx-x")
-        } else {
-          menu.classList.remove("opacity-100", "translate-y-0")
-          menu.classList.add(
-            "opacity-0",
-            "pointer-events-none",
-            "-translate-y-2"
-          )
-          setTimeout(() => {
-            menu.classList.add("hidden")
-          }, 300)
-          menuIcon.classList.remove("bx-x")
-          menuIcon.classList.add("bx-menu")
-        }
+        const isHidden = menu.classList.contains("hidden")
+        menu.classList.toggle("hidden", !isHidden)
+        menuIcon.className = isHidden ? "bx bx-x text-2xl" : "bx bx-menu text-2xl"
       })
     </script>
 
-    <!-- Header -->
-    <header class="relative bg-gray-900 text-white">
-      <div class="absolute inset-0">
-        <img
-          src="assets/images/header-bg.jpg"
-          alt="Elektronika va Sxemalar"
-          class="w-full h-full object-cover opacity-50"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
-      </div>
-    
-      <div class="relative z-10 container mx-auto px-4 py-12 md:py-24 text-center">
-        <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight leading-tight">
-          Elektronika va Sxemalar <br /> Fanidan Elektron Darslik
-        </h1>
-        <p class="mt-4 md:mt-6 text-lg md:text-2xl text-gray-300 font-medium">
-          Sxemalar va elektronika dunyosiga ilmiy sayohat!
-        </p>
-        <a
-          href="#video-section"
-          class="mt-8 inline-block bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300"
-        >
-          Darslarni boshlash
-        </a>
-      </div>
-    </header>    
-
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6">
-          Elektronika va sxemalar <br />
-          haqida ko‘proq bilib oling!
-        </h2>
-        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-          Ushbu kurs sizga elektromagnit maydonlar, to‘lqinlar, Maksvel tenglamalari
-          va ularning real hayotdagi qo‘llanilishini chuqur o‘rganish imkonini beradi.
+    <header class="relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-slate-900">
+      <div class="absolute inset-0">
+        <img src="assets/images/header-bg.jpg" alt="Elektronika va Sxemalar" class="w-full h-full object-cover opacity-20" />
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/90 to-orange-900/30"></div>
+        <div class="hero-pattern absolute inset-0"></div>
+      </div>
+      <div class="absolute top-20 right-10 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-20 left-10 w-56 h-56 bg-amber-400/15 rounded-full blur-3xl" style="animation:float 8s ease-in-out infinite reverse;"></div>
+      <div class="relative z-10 container mx-auto px-4 text-center py-20">
+        <div class="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 text-orange-300 text-sm font-medium px-4 py-1.5 rounded-full mb-8">
+          <span class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+          Elektron Darslik Platformasi
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6">
+          Elektronika va<br />
+          <span class="gradient-text">Sxemalar</span> Kursi
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Sxemalar va elektronika dunyosiga ilmiy sayohat! Nazariya, amaliyot va video darslar bir joyda.
         </p>
-        <div class="flex justify-center">
-          <a
-            href="video.html#video-section"
-            class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M14.752 11.168l-6.518-3.813A1 1 0 007 8.056v7.888a1 1 0 001.234.97l6.518-3.813a1 1 0 000-1.732z" />
-            </svg>
-            Darslarni ko‘rish
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="video.html#video-section" class="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 hover:-translate-y-0.5">
+            <i class="bx bx-play-circle text-2xl"></i>
+            Darslarni boshlash
+          </a>
+          <a href="material.html" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:-translate-y-0.5">
+            <i class="bx bx-book-open text-xl"></i>
+            Materiallar
           </a>
         </div>
       </div>
-      <!-- Dekorativ shakl -->
-      <div class="absolute top-0 right-0 w-32 h-32 bg-orange-300 opacity-20 rounded-full blur-3xl transform translate-x-16 -translate-y-16"></div>
-      <div class="absolute bottom-0 left-0 w-48 h-48 bg-orange-400 opacity-10 rounded-full blur-3xl transform -translate-x-24 translate-y-16"></div>
-    </section>    
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 text-xs">
+        <span>Pastga skroll qiling</span>
+        <i class="bx bx-chevron-down text-2xl animate-bounce"></i>
+      </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-10 bg-white border-b border-slate-100">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div class="stat-card rounded-2xl p-6 text-center">
+            <div class="text-3xl md:text-4xl font-extrabold gradient-text mb-1">3</div>
+            <div class="text-slate-500 text-sm font-medium">Modullar</div>
+          </div>
+          <div class="stat-card rounded-2xl p-6 text-center">
+            <div class="text-3xl md:text-4xl font-extrabold gradient-text mb-1">9</div>
+            <div class="text-slate-500 text-sm font-medium">Video darslar</div>
+          </div>
+          <div class="stat-card rounded-2xl p-6 text-center">
+            <div class="text-3xl md:text-4xl font-extrabold gradient-text mb-1">21</div>
+            <div class="text-slate-500 text-sm font-medium">Maruzalar</div>
+          </div>
+          <div class="stat-card rounded-2xl p-6 text-center">
+            <div class="text-3xl md:text-4xl font-extrabold gradient-text mb-1">6</div>
+            <div class="text-slate-500 text-sm font-medium">Lab ishlari</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="inline-block text-orange-500 font-semibold text-sm uppercase tracking-widest mb-3">Kurs haqida</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+            Elektronika va sxemalar haqida<br />ko'proq bilib oling!
+          </h2>
+          <p class="text-lg text-slate-500 leading-relaxed mb-8">
+            Ushbu kurs sizga elektr zanjirlar, yarimo'tkazgichlar, raqamli elektronika va zamonaviy texnologiyalarni chuqur o'rganish imkonini beradi.
+          </p>
+          <a href="video.html#video-section" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-0.5">
+            <i class="bx bx-play text-xl"></i>
+            Darslarni ko'rish
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Modules Section -->
-    <section class="py-14 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <section class="py-20 bg-slate-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-10">
-          📦 Modullar
-        </h2>
+        <div class="text-center mb-14">
+          <span class="inline-block text-orange-500 font-semibold text-sm uppercase tracking-widest mb-3">O'quv dasturi</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Kurs Modullari</h2>
+        </div>
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <!-- Modul 1 -->
-          <div
-            class="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">
-              ⚡ Modul 1: Elektr zanjirlar asoslari
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Elektr zanjirlar, tok, kuchlanish va qarshilik haqida asosiy
-              tushunchalar.
-            </p>
-            <a
-              href="video.html"
-              class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium"
-            >
-              Ko'proq o'qish
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-              </svg>
+          <div class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl card-glow transition-all duration-300 hover:-translate-y-2 border border-slate-100">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-400 flex items-center justify-center mb-6 shadow-lg shadow-orange-500/25 group-hover:scale-110 transition-transform duration-300">
+              <i class="bx bx-bolt-circle text-white text-2xl"></i>
+            </div>
+            <span class="text-xs font-semibold text-orange-500 uppercase tracking-widest">Modul 1</span>
+            <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Elektr zanjirlar asoslari</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6">Elektr zanjirlar, tok, kuchlanish va qarshilik haqida asosiy tushunchalar.</p>
+            <a href="video.html" class="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-600 font-semibold text-sm">
+              Ko'proq o'qish <i class="bx bx-right-arrow-alt text-lg transition-transform group-hover:translate-x-1"></i>
             </a>
           </div>
-    
           <!-- Modul 2 -->
-          <div
-            class="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">
-              🧲 Modul 2: Yarimo‘tkazgichlar
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Diodlar, tranzistorlar va yarimo'tkazgich qurilmalar xossalari va qo'llanilishi.
-            </p>
-            <a
-              href="video.html"
-              class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium"
-            >
-              Ko'proq o'qish
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-              </svg>
+          <div class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl card-glow transition-all duration-300 hover:-translate-y-2 border border-slate-100">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-violet-500/25 group-hover:scale-110 transition-transform duration-300">
+              <i class="bx bx-atom text-white text-2xl"></i>
+            </div>
+            <span class="text-xs font-semibold text-violet-500 uppercase tracking-widest">Modul 2</span>
+            <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Yarimo'tkazgichlar</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6">Diodlar, tranzistorlar va yarimo'tkazgich qurilmalar xossalari va qo'llanilishi.</p>
+            <a href="video.html" class="inline-flex items-center gap-1.5 text-violet-500 hover:text-violet-600 font-semibold text-sm">
+              Ko'proq o'qish <i class="bx bx-right-arrow-alt text-lg"></i>
             </a>
           </div>
-    
           <!-- Modul 3 -->
-          <div
-            class="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">
-              💡 Modul 3: Raqamli elektronika
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Mantiqiy sxemalar, triggerlar va raqamli qurilmalar bilan tanishing.
-            </p>
-            <a
-              href="video.html"
-              class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium"
-            >
-              Ko'proq o'qish
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-              </svg>
+          <div class="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl card-glow transition-all duration-300 hover:-translate-y-2 border border-slate-100">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform duration-300">
+              <i class="bx bx-chip text-white text-2xl"></i>
+            </div>
+            <span class="text-xs font-semibold text-emerald-500 uppercase tracking-widest">Modul 3</span>
+            <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Raqamli elektronika</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6">Mantiqiy sxemalar, triggerlar va raqamli qurilmalar bilan tanishing.</p>
+            <a href="video.html" class="inline-flex items-center gap-1.5 text-emerald-500 hover:text-emerald-600 font-semibold text-sm">
+              Ko'proq o'qish <i class="bx bx-right-arrow-alt text-lg"></i>
             </a>
           </div>
         </div>
       </div>
-    </section>    
+    </section>
 
     <!-- Resources Section -->
-    <section class="py-14 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100">
+    <section class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">
-          📚 Foydali Resurslar
-        </h2>
+        <div class="text-center mb-14">
+          <span class="inline-block text-orange-500 font-semibold text-sm uppercase tracking-widest mb-3">Resurslar</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Foydali Resurslar</h2>
+        </div>
         <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <a
-            download="majmua.docx"
-            href="assets/libs/resources/MAJMUA_EMVaT_READY++++++.docx"
-            class="flex items-center justify-between bg-white p-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition"
-          >
-            <div>
-              <h3 class="text-lg font-semibold text-gray-700">
-                Majmua: Elektronika va Sxemalar
-              </h3>
-              <p class="text-gray-500 text-sm mt-1">Yuklab olish (Word)</p>
+          <a download="majmua.docx" href="assets/libs/resources/MAJMUA_EMVaT_READY++++++.docx"
+            class="group flex gap-4 items-start bg-slate-50 hover:bg-orange-50 p-6 rounded-2xl border border-slate-200 hover:border-orange-200 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <i class="bx bx-download text-blue-600 text-xl"></i>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v6m0 0l-3-3m3 3l3-3M12 4v8" />
-            </svg>
+            <div>
+              <h3 class="font-bold text-slate-800 group-hover:text-orange-600 transition-colors">Majmua: Elektronika va Sxemalar</h3>
+              <p class="text-slate-400 text-sm mt-1">Yuklab olish (Word)</p>
+            </div>
           </a>
-    
-          <a
-            href="https://www.khanacademy.org"
-            target="_blank"
-            class="flex items-center justify-between bg-white p-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition"
-          >
-            <div>
-              <h3 class="text-lg font-semibold text-gray-700">
-                Khan Academy: Elektronika
-              </h3>
-              <p class="text-gray-500 text-sm mt-1">Online darslar</p>
+          <a href="https://www.khanacademy.org" target="_blank"
+            class="group flex gap-4 items-start bg-slate-50 hover:bg-orange-50 p-6 rounded-2xl border border-slate-200 hover:border-orange-200 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <i class="bx bx-link-external text-green-600 text-xl"></i>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-            </svg>
+            <div>
+              <h3 class="font-bold text-slate-800 group-hover:text-orange-600 transition-colors">Khan Academy: Elektronika</h3>
+              <p class="text-slate-400 text-sm mt-1">Online bepul darslar</p>
+            </div>
           </a>
-    
-          <a
-            href="https://ocw.mit.edu"
-            target="_blank"
-            class="flex items-center justify-between bg-white p-5 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition"
-          >
-            <div>
-              <h3 class="text-lg font-semibold text-gray-700">
-                MIT OpenCourseWare: Elektronika
-              </h3>
-              <p class="text-gray-500 text-sm mt-1">Dunyo universitetlaridan bepul kurslar</p>
+          <a href="https://ocw.mit.edu" target="_blank"
+            class="group flex gap-4 items-start bg-slate-50 hover:bg-orange-50 p-6 rounded-2xl border border-slate-200 hover:border-orange-200 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <i class="bx bx-globe text-purple-600 text-xl"></i>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-            </svg>
+            <div>
+              <h3 class="font-bold text-slate-800 group-hover:text-orange-600 transition-colors">MIT OpenCourseWare</h3>
+              <p class="text-slate-400 text-sm mt-1">Dunyo universitetlaridan bepul kurslar</p>
+            </div>
           </a>
         </div>
       </div>
-    </section>    
+    </section>
 
     <!-- Contact Section -->
-    <section class="container mx-auto px-4 my-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">
-        Bog‘lanish
-      </h2>
-      <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-        <form id="contactForm" class="space-y-6">
-          <div>
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-700"
-            >
-              Ismingiz
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none transition"
-            />
-          </div>
-          <div>
-            <label
-              for="email"
-              class="block mb-2 text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none transition"
-            />
-          </div>
-          <div>
-            <label
-              for="message"
-              class="block mb-2 text-sm font-medium text-gray-700"
-            >
-              Xabaringiz
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none transition"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-xl transition"
-          >
-            Xabar yuborish
-          </button>
-        </form>
-        <p id="formStatus" class="text-center mt-4 text-lg font-semibold"></p>
+    <section class="py-20 bg-slate-900 relative overflow-hidden">
+      <div class="hero-pattern absolute inset-0 opacity-50"></div>
+      <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl"></div>
+      <div class="relative container mx-auto px-4">
+        <div class="text-center mb-12">
+          <span class="inline-block text-orange-400 font-semibold text-sm uppercase tracking-widest mb-3">Aloqa</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white">Bog'lanish</h2>
+          <p class="text-slate-400 mt-3 max-w-md mx-auto">Savollaringiz bormi? Biz bilan bog'laning!</p>
+        </div>
+        <div class="max-w-xl mx-auto bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl shadow-2xl">
+          <form id="contactForm" class="space-y-5">
+            <div>
+              <label for="name" class="block mb-2 text-sm font-medium text-slate-300">Ismingiz</label>
+              <input type="text" id="name" name="name" placeholder="Ismingizni kiriting"
+                class="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 focus:outline-none transition" />
+            </div>
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-slate-300">Email</label>
+              <input type="email" id="email" name="email" placeholder="email@misol.com"
+                class="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 focus:outline-none transition" />
+            </div>
+            <div>
+              <label for="message" class="block mb-2 text-sm font-medium text-slate-300">Xabaringiz</label>
+              <textarea id="message" name="message" rows="4" placeholder="Xabaringizni yozing..."
+                class="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-500 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 focus:outline-none transition resize-none"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold py-4 rounded-xl transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <i class="bx bx-send text-lg"></i>
+              Xabar yuborish
+            </button>
+          </form>
+          <p id="formStatus" class="text-center mt-4 text-sm font-semibold"></p>
+        </div>
       </div>
     </section>
 
     <script>
       const contactForm = document.getElementById("contactForm")
       const statusText = document.getElementById("formStatus")
-
       let telegramTokenBot = "8640609241:AAGhfj0onnqrlyji2LteS8fMuLP70B15HSc"
       let chatId = "-1003508930582"
-
       const message = {
         loading: "⏳ Xabar yuborilmoqda...",
-        success:
-          "✅ Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog‘lanamiz.",
-        failure: "❌ Xatolik yuz berdi. Qayta urinib ko‘ring!",
+        success: "✅ Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
+        failure: "❌ Xatolik yuz berdi. Qayta urinib ko'ring!",
       }
-
       contactForm.addEventListener("submit", function (e) {
         e.preventDefault()
-
         const name = document.getElementById("name").value.trim()
         const email = document.getElementById("email").value.trim()
         const userMessage = document.getElementById("message").value.trim()
-
         if (!name || !email || !userMessage) {
-          statusText.textContent = "Iltimos, barcha maydonlarni to‘ldiring!"
-          statusText.className =
-            "text-center mt-4 text-lg text-red-600 font-semibold animate-pulse"
+          statusText.textContent = "Iltimos, barcha maydonlarni to'ldiring!"
+          statusText.className = "text-center mt-4 text-sm text-red-400 font-semibold animate-pulse"
           return
         }
-
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailPattern.test(email)) {
-          statusText.textContent = "Email noto‘g‘ri kiritilgan!"
-          statusText.className =
-            "text-center mt-4 text-lg text-red-600 font-semibold animate-pulse"
+          statusText.textContent = "Email noto'g'ri kiritilgan!"
+          statusText.className = "text-center mt-4 text-sm text-red-400 font-semibold animate-pulse"
           return
         }
-
         statusText.textContent = message.loading
-        statusText.className =
-          "text-center mt-4 text-lg text-blue-600 font-semibold animate-pulse"
-
-        axios
-          .post(`https://api.telegram.org/bot${telegramTokenBot}/sendMessage`, {
-            chat_id: chatId,
-            text: `📬 Yangi xabar:\n\n👤 Ism: ${name}\n📧 Email: ${email}\n💬 Xabar: ${userMessage}`,
-          })
-          .then(() => {
-            statusText.textContent = message.success
-            statusText.className =
-              "text-center mt-4 text-lg text-green-600 font-semibold animate-bounce"
-            contactForm.reset()
-          })
-          .catch(() => {
-            statusText.textContent = message.failure
-            statusText.className =
-              "text-center mt-4 text-lg text-red-600 font-semibold animate-bounce"
-          })
-          .finally(() => {
-            setTimeout(() => {
-              statusText.textContent = ""
-              statusText.className = ""
-            }, 2500) // 2.5 sekunddan keyin status yo‘q bo‘ladi
-          })
+        statusText.className = "text-center mt-4 text-sm text-blue-400 font-semibold animate-pulse"
+        axios.post(`https://api.telegram.org/bot${telegramTokenBot}/sendMessage`, {
+          chat_id: chatId,
+          text: `📬 Yangi xabar:\n\n👤 Ism: ${name}\n📧 Email: ${email}\n💬 Xabar: ${userMessage}`,
+        }).then(() => {
+          statusText.textContent = message.success
+          statusText.className = "text-center mt-4 text-sm text-green-400 font-semibold"
+          contactForm.reset()
+        }).catch(() => {
+          statusText.textContent = message.failure
+          statusText.className = "text-center mt-4 text-sm text-red-400 font-semibold"
+        }).finally(() => {
+          setTimeout(() => { statusText.textContent = ""; statusText.className = "" }, 3000)
+        })
       })
     </script>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-8">
+    <footer class="bg-slate-950 text-white pt-14 pb-8 border-t border-white/5">
       <div class="container mx-auto px-4">
-        <p class="text-xl mb-4">
-          &copy; 2025 Elektronika va Sxemalar Darslik | Muallif: Umurzokova Sevinch Komiljonovna, TT 22-11
-        </p>
-        <div class="flex justify-center space-x-4">
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-telegram text-2xl"></i>
-          </a>
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-youtube text-2xl"></i>
-          </a>
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-github text-2xl"></i>
-          </a>
+        <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+          <div>
+            <a href="index.html" class="flex items-center gap-2.5 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 to-amber-400 flex items-center justify-center shadow-lg">
+                <i class="bx bx-chip text-white text-xl"></i>
+              </div>
+              <span class="text-white font-bold text-lg">Elektron<span class="gradient-text">ika</span></span>
+            </a>
+            <p class="text-slate-400 text-sm leading-relaxed">Elektronika va sxemalar fanidan zamonaviy elektron darslik platformasi.</p>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-4">Sahifalar</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="index.html" class="text-slate-400 hover:text-orange-400 transition flex items-center gap-2"><i class="bx bx-chevron-right text-orange-500"></i>Bosh sahifa</a></li>
+              <li><a href="material.html" class="text-slate-400 hover:text-orange-400 transition flex items-center gap-2"><i class="bx bx-chevron-right text-orange-500"></i>Materiallar</a></li>
+              <li><a href="video.html" class="text-slate-400 hover:text-orange-400 transition flex items-center gap-2"><i class="bx bx-chevron-right text-orange-500"></i>Video darslar</a></li>
+              <li><a href="about.html" class="text-slate-400 hover:text-orange-400 transition flex items-center gap-2"><i class="bx bx-chevron-right text-orange-500"></i>Haqida</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold mb-4">Muallif</h4>
+            <p class="text-slate-400 text-sm mb-4">Umurzokova Sevinch Komiljonovna<br />TT 22-11 guruh</p>
+            <div class="flex gap-3">
+              <a href="#" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-orange-500 flex items-center justify-center transition-all duration-300 hover:scale-110"><i class="bx bxl-telegram text-white text-lg"></i></a>
+              <a href="#" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-red-500 flex items-center justify-center transition-all duration-300 hover:scale-110"><i class="bx bxl-youtube text-white text-lg"></i></a>
+              <a href="#" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-slate-600 flex items-center justify-center transition-all duration-300 hover:scale-110"><i class="bx bxl-github text-white text-lg"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="pt-6 text-center text-slate-500 text-sm">
+          &copy; 2025 Elektronika va Sxemalar Darslik. Barcha huquqlar himoyalangan.
         </div>
       </div>
     </footer>
