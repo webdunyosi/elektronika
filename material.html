@@ -1,958 +1,819 @@
 <!DOCTYPE html>
 <html lang="uz">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Materiallar - Elektronika va Sxemalar</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="font-sans bg-gray-100 text-gray-800">
-    <!-- Navigation -->
-    <nav
-      class="sticky top-0 left-0 right-0 bg-gray-800 py-2 md:py-0 px-5 lg:px-10 shadow-lg z-50 flex justify-between items-center"
-    >
-      <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
-        <a
-          href="index.html"
-          class="text-white text-lg font-bold flex items-center"
-        >
-          <i class="bx bx-home text-2xl mr-2"></i> Elektronika
-        </a>
-        <button
-          id="menu-toggle"
-          class="text-white md:hidden focus:outline-none absolute right-10"
-        >
-          <i id="menu-icon" class="bx bx-menu text-2xl"></i>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/modern.css" />
+  <title>Materiallar - Elektronika va Sxemalar</title>
+  <style>
+    details[open] > summary .details-arrow i { transform: rotate(180deg); }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body>
+  <nav id="navbar" class="nav-modern fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+      <a href="index.html" class="nav-logo flex items-center gap-2">
+        <i class="bx bx-chip text-2xl" style="color:#f97316"></i>
+        <span>Elektronika</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="nav-link flex items-center gap-2"><i class="bx bx-home"></i>Bosh sahifa</a>
+        <a href="material.html" class="nav-link active flex items-center gap-2"><i class="bx bx-file"></i>Materiallar</a>
+        <a href="video.html" class="nav-link flex items-center gap-2"><i class="bx bx-video"></i>Video darslar</a>
+        <a href="about.html" class="nav-link flex items-center gap-2"><i class="bx bx-info-circle"></i>Haqida</a>
       </div>
-      <ul
-        id="menu"
-        class="absolute top-full left-0 w-full bg-gray-800 text-white flex-col space-y-2 px-4 py-4 opacity-0 pointer-events-none md:pointer-events-auto md:opacity-100 justify-end hidden md:flex md:static md:flex-row md:space-y-0 md:space-x-4 md:mt-0 md:bg-transparent transition-all duration-300 transform md:translate-y-0 -translate-y-2 z-40"
-      >
-        <li>
-          <a
-            href="index.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-home mr-2"></i> Bosh sahifa</a
-          >
-        </li>
-        <li>
-          <a
-            href="material.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-file mr-2"></i> Materiallar</a
-          >
-        </li>
-        <li>
-          <a
-            href="video.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-video mr-2"></i> Video darslar</a
-          >
-        </li>
-        <li>
-          <a
-            href="about.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-info-circle mr-2"></i> Haqida</a
-          >
-        </li>
-      </ul>
-    </nav>
-
-    <script>
-      const menuToggle = document.getElementById("menu-toggle")
-      const menu = document.getElementById("menu")
-      const menuIcon = document.getElementById("menu-icon")
-
-      menuToggle.addEventListener("click", () => {
-        const isHidden = menu.classList.contains("opacity-0")
-
-        if (isHidden) {
-          menu.classList.remove(
-            "opacity-0",
-            "pointer-events-none",
-            "-translate-y-2",
-            "hidden"
-          )
-          menu.classList.add("opacity-100", "translate-y-0")
-          menuIcon.classList.remove("bx-menu")
-          menuIcon.classList.add("bx-x")
-        } else {
-          menu.classList.remove("opacity-100", "translate-y-0")
-          menu.classList.add(
-            "opacity-0",
-            "pointer-events-none",
-            "-translate-y-2"
-          )
-          setTimeout(() => {
-            menu.classList.add("hidden")
-          }, 300)
-          menuIcon.classList.remove("bx-x")
-          menuIcon.classList.add("bx-menu")
-        }
-      })
-    </script>
-
-    <!-- Header -->
-    <header class="relative bg-gray-900 text-white">
-      <div class="absolute inset-0">
-        <img
-          src="assets/images/materiallar-bg.jpg"
-          alt="Elektronika va Sxemalar materiallari"
-          class="w-full h-full object-cover opacity-50"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80"
-        ></div>
-      </div>
-
-      <div
-        class="relative z-10 container mx-auto px-4 py-12 md:py-24 text-center"
-      >
-        <h1
-          class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight"
-        >
-          Elektronika va Sxemalar <br />
-          Fanidan O‘quv Materiallari
-        </h1>
-        <p class="mt-4 md:mt-6 text-lg md:text-2xl text-gray-300 font-medium">
-          Barcha o‘quv materiallari va qo‘llanmalar bir joyda!
-        </p>
-        <a
-          href="#resources"
-          class="mt-8 inline-block bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300"
-        >
-          Materiallarni ko‘rish
-        </a>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container mx-auto px-4 md:px-[5%]">
-      <!-- Sillabus -->
-      <section class="my-5">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Sillabus</h2>
-        <details class="bg-white shadow rounded p-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Sillabus
-          </summary>
-          <ul class="space-y-2 mt-2">
-            <li>
-              <a
-                href="assets/libs/maruzalar/Sillabus 2024 - 25 (UZB).docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >Sillabus</a
-              >
-            </li>
-          </ul>
-        </details>
-      </section>
-
-      <!-- Laboratoriya -->
-      <section class="my-5">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">
-          Laboratoriya ishlari
-        </h2>
-        <details class="bg-white shadow rounded p-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Laboratoriya ishlari
-          </summary>
-          <ul class="space-y-2 mt-2">
-            <li>
-              <a
-                href="assets/libs/labaratoriya/1-2-Labaratoriya ishi.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >1-Laboratoriya: Kirish</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/labaratoriya/3-Labaratoriya ishi.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >2-Laboratoriya: Elektr zanjirlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/labaratoriya/4-Labaratoriya ishi.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >3-Laboratoriya: Yarimo'tkazgichlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/labaratoriya/5-Labaratoriya ishi.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >4-Laboratoriya: Tranzistorlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/labaratoriya/6-Labaratoriya ishi.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >5-Laboratoriya: Mantiqiy sxemalar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/labaratoriya/7-Labaratoriya ishi.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >6-Laboratoriya: Raqamli elektronika</a
-              >
-            </li>
-          </ul>
-        </details>
-      </section>
-
-      <!-- Maruzalar -->
-      <section class="my-5">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Maruzalar</h2>
-        <details class="bg-white shadow rounded p-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Maruzalar
-          </summary>
-          <ul class="space-y-2 mt-2">
-            <li>
-              <a
-                href="assets/libs/maruzalar/1-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >1-Maruza: Elektronika va sxemalar kirish</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/2 - 3- maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >2-Maruza: Elektr zanjirlar va asosiy qonunlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/2 - 3- maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >3-Maruza: O'zgaruvchan tok zanjirlari</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/4 - maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >4-Maruza: Yarimo'tkazgich elementlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/5 -maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >5-Maruza: Diodlar va to'g'irlagichlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/6.-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >6-Maruza: Tranzistorlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/7..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >7-Maruza: Kuchaytirgichlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/8.-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >8-Maruza: Operatsion kuchaytirgichlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/9.-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >9-Maruza: Mantiqiy elementlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/10.-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >10-Maruza: Triggerlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/11.-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >11-Maruza: Registrlar va hisoblagichlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/12..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >12-Maruza: Xotira qurilmalari</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/13..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >13-Maruza: Raqamli-analog o'zgartirgichlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/14..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >14-Maruza: Mikrokontrollerlar asoslari</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/15..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >15-Maruza: Sensor va aktyuatorlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/16..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >16-Maruza: Impuls manbalari</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/17..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >17-Maruza: Filtrlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/18..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >18-Maruza: Generatorlar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/19..-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >19-Maruza: Modulyatsiya va demodulyatsiya</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/20 -maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >20-Maruza: Aloqa qurilmalari</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/maruzalar/21-maruza.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >21-Maruza: Zamonaviy elektronika ilovalari</a
-              >
-            </li>
-          </ul>
-        </details>
-      </section>
-
-      <!-- Resurslar -->
-      <section class="my-5">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Resurslar</h2>
-        <details class="bg-white shadow rounded p-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Resurslar
-          </summary>
-          <ul class="space-y-2 mt-2">
-            <li>
-              <a
-                href="assets/libs/resources/MAJMUA_EMVaT_READY++++++.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >Majmua: Elektronika va Sxemalar</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/resources/Elektr va magnetizm. Kamolov J, Ismoilov I.pdf"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >Majmua: Elektr va magnetizm.</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/resources/elektrodinamika fure.pdf"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >Majmua: Elektrodinamika</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/resources/EMM_va_T_Oquv_lotin.pdf"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >Majmua: Elektronika o'quv qo'llanma</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/resources/Savelev_Умумий_физика_2тўп.pdf"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >Majmua: Umumiy fizika</a
-              >
-            </li>
-          </ul>
-        </details>
-      </section>
-
-      <!-- Ruscha materiallar -->
-      <section class="my-5">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">
-          Ruscha materiallar
-        </h2>
-        <details class="bg-white shadow rounded p-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Maruzalar
-          </summary>
-          <ul class="space-y-2 mt-2">
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№1.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >1-Лекция: Введение в электромагнитные поля</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№2.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >2-Лекция: Электростатическое поле</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№3.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >3-Лекция: Проводники в электростатическом поле</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№4.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >4-Лекция: Диэлектрики в электростатическом поле</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№5.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >5-Лекция: Энергия электростатического поля</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№6.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >6-Лекция: Постоянный электрический ток</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№7.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >7-Лекция: Магнитное поле постоянного тока</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№8.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >8-Лекция: Магнитное поле в веществе</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№9.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >9-Лекция: Электромагнитная индукция</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№10.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >10-Лекция: Индуктивность и взаимная индуктивность</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№11.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >11-Лекция: Энергия магнитного поля</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№12.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >12-Лекция: Переменный электрический ток</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№13.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >13-Лекция: Электромагнитные колебания</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№14.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >14-Лекция: Уравнения Максвелла</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№15.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >15-Лекция: Электромагнитные волны</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№16.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >16-Лекция: Распространение волн в различных средах</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№17.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >17-Лекция: Излучение электромагнитных волн</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№18.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >18-Лекция: Волноводы и резонаторы</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№19.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >19-Лекция: Антенны и их характеристики</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№20.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >20-Лекция: Электромагнитная совместимость</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№21.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >21-Лекция: Современные приложения</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№22.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >22-Лекция: Перспективы развития электромагнитной теории</a
-              >
-            </li>
-          </ul>
-        </details>
-
-        <details class="bg-white shadow rounded p-4 mt-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Laboratoriya ishlari
-          </summary>
-          <ul class="space-y-2 mt-2">
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№1.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >1-Лабораторная работа: Основы измерений</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№2.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >2-Лабораторная работа: Электростатическое поле</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№3.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >3-Лабораторная работа: Проводники и диэлектрики</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№4.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >4-Лабораторная работа: Постоянный ток</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№5.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >5-Лабораторная работа: Магнитное поле</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№6.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >6-Лабораторная работа: Электромагнитная индукция</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№7.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >7-Лабораторная работа: Уравнения Максвелла</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№8.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >8-Лабораторная работа: Электромагнитные волны</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№9.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >9-Лабораторная работа: Интерференция волн</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№10.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >10-Лабораторная работа: Дифракция волн</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№11.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >11-Лабораторная работа: Поляризация волн</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№12.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >12-Лабораторная работа: Волноводы</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№13.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >13-Лабораторная работа: Резонаторы</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№14.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >14-Лабораторная работа: Антенны</a
-              >
-            </li>
-            <li>
-              <a
-                href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№15.docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >15-Лабораторная работа: Электромагнитная совместимость</a
-              >
-            </li>
-          </ul>
-        </details>
-
-        <details class="bg-white shadow rounded p-4 mt-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Sirtqilar uchun materiallar
-          </summary>
-
-          <details class="bg-white shadow rounded p-4 mt-4">
-            <summary
-              class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-            >
-              Лекции
-            </summary>
-            <ul class="space-y-2 mt-2">
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№1.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >1-Лекция: Основы электромагнетизма</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№2.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >2-Лекция: Электростатическое поле</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№3.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >3-Лекция: Магнитное поле</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№4.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >4-Лекция: Электромагнитная индукция</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№5.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >5-Лекция: Электромагнитные волны</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№6.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >6-Лекция: Прикладная электродинамика</a
-                >
-              </li>
-            </ul>
-          </details>
-
-          <details class="bg-white shadow rounded p-4 mt-4">
-            <summary
-              class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-            >
-              Лабораторные работы
-            </summary>
-            <ul class="space-y-2 mt-2">
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№1.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >1-Лабораторная работа: Измерение электрических величин</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№2.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >2-Лабораторная работа: Исследование магнитного поля</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№3.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >3-Лабораторная работа: Изучение электромагнитных волн</a
-                >
-              </li>
-            </ul>
-          </details>
-
-          <details class="bg-white shadow rounded p-4 mt-4">
-            <summary
-              class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-            >
-              Самостоятельные работы
-            </summary>
-            <ul class="space-y-2 mt-2">
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/Сам_раб_000.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >1-Самостоятельная работа: Расчет электрических полей</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/Сам_раб_№1.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >2-Самостоятельная работа: Расчет магнитных полей</a
-                >
-              </li>
-              <li>
-                <a
-                  href="assets/libs/rus-materials/sirtqi/Сам_раб_№2.docx"
-                  download
-                  class="text-blue-600 hover:text-blue-800 transition"
-                  >3-Самостоятельная работа: Расчет параметров волн</a
-                >
-              </li>
-            </ul>
-          </details>
-        </details>
-      </section>
-
-      <!-- Testlar -->
-      <section class="my-5">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Testlar</h2>
-        <details class="bg-white shadow rounded p-4">
-          <summary
-            class="cursor-pointer text-blue-600 hover:text-blue-800 transition"
-          >
-            Testlar
-          </summary>
-          <ul class="space-y-2 mt-2">
-            <li>
-              <a
-                href="assets/libs/tests/EMvaT_TEST_UZ (200 ta ).docx"
-                download
-                class="text-blue-600 hover:text-blue-800 transition"
-                >1-Test: Elektronika va sxemalar</a
-              >
-            </li>
-          </ul>
-        </details>
-      </section>
+      <button id="menu-toggle" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition">
+        <i id="menu-icon" class="bx bx-menu text-2xl"></i>
+      </button>
     </div>
+    <div id="menu" class="mobile-menu hidden md:hidden border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+          <a href="index.html" class="nav-link flex items-center gap-2 px-4 py-3"><i class="bx bx-home"></i>Bosh sahifa</a>
+          <a href="material.html" class="nav-link active flex items-center gap-2 px-4 py-3"><i class="bx bx-file"></i>Materiallar</a>
+          <a href="video.html" class="nav-link flex items-center gap-2 px-4 py-3"><i class="bx bx-video"></i>Video darslar</a>
+          <a href="about.html" class="nav-link flex items-center gap-2 px-4 py-3"><i class="bx bx-info-circle"></i>Haqida</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-8">
-      <div class="container mx-auto px-4">
-        <p class="text-xl mb-4">
-          &copy; 2025 Elektronika va Sxemalar Darslik | Muallif: Umurzokova Sevinch Komiljonovna, TT 22-11
-        </p>
-        <div class="flex justify-center space-x-4">
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-telegram text-2xl"></i>
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="padding-top:var(--nav-height)">
+    <div class="absolute inset-0">
+      <img src="assets/images/materiallar-bg.jpg" alt="Materiallar" class="w-full h-full object-cover" />
+      <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(15,23,42,0.85) 0%,rgba(30,27,75,0.80) 100%)"></div>
+    </div>
+    <div class="hero-grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-24 text-center">
+      <span class="section-badge" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.2)">O'quv materiallari</span>
+      <h1 class="text-4xl md:text-6xl font-black text-white mt-4 mb-6">
+        Elektronika va Sxemalar<br><span class="gradient-text-warm">O'quv Materiallari</span>
+      </h1>
+      <p class="text-lg text-white/75 max-w-xl mx-auto mb-8">Barcha o'quv materiallari va qo'llanmalar bir joyda!</p>
+      <a href="#resources" class="btn-primary"><i class="bx bx-download text-xl"></i>Materiallarni ko'rish</a>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-12 bg-white border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center reveal">
+        <div class="text-3xl font-black text-indigo-600">21</div>
+        <div class="text-sm text-gray-500 mt-1">Maruza</div>
+      </div>
+      <div class="text-center reveal delay-100">
+        <div class="text-3xl font-black text-orange-500">6</div>
+        <div class="text-sm text-gray-500 mt-1">Laboratoriya ishi</div>
+      </div>
+      <div class="text-center reveal delay-200">
+        <div class="text-3xl font-black text-green-600">5</div>
+        <div class="text-sm text-gray-500 mt-1">Qo'shimcha resurs</div>
+      </div>
+      <div class="text-center reveal delay-300">
+        <div class="text-3xl font-black text-blue-600">200</div>
+        <div class="text-sm text-gray-500 mt-1">Test savoli</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Materials -->
+  <section id="resources" class="py-24" style="background:var(--bg)">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-16 reveal">
+        <span class="section-badge">Barcha materiallar</span>
+        <h2 class="section-title mt-3">O'zbek tilidagi materiallar</h2>
+        <p class="section-subtitle">Yuklab oling va o'rganing</p>
+        <div class="section-divider"></div>
+      </div>
+
+        <details class="modern-card overflow-visible mb-6 reveal" id="sillabus">
+          <summary class="flex items-center gap-4 p-6 cursor-pointer list-none select-none hover:bg-gray-50 transition rounded-2xl">
+            <div class="icon-box icon-box-primary flex-shrink-0"><i class="bx bx-list-check text-xl"></i></div>
+            <span class="text-lg font-bold text-gray-900">Sillabus</span>
+            <span class="ml-auto w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 details-arrow"><i class="bx bx-chevron-down text-lg transition-transform"></i></span>
+          </summary>
+          <ul class="px-6 pb-6 space-y-1 border-t border-gray-100 pt-4">
+          <li>
+            <a href="assets/libs/maruzalar/Sillabus 2024 - 25 (UZB).docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">Sillabus 2024-25</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          </ul>
+        </details>
+        <details class="modern-card overflow-visible mb-6 reveal" id="laboratoriya">
+          <summary class="flex items-center gap-4 p-6 cursor-pointer list-none select-none hover:bg-gray-50 transition rounded-2xl">
+            <div class="icon-box icon-box-orange flex-shrink-0"><i class="bx bx-flask text-xl"></i></div>
+            <span class="text-lg font-bold text-gray-900">Laboratoriya ishlari</span>
+            <span class="ml-auto w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 details-arrow"><i class="bx bx-chevron-down text-lg transition-transform"></i></span>
+          </summary>
+          <ul class="px-6 pb-6 space-y-1 border-t border-gray-100 pt-4">
+          <li>
+            <a href="assets/libs/labaratoriya/1-2-Labaratoriya ishi.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Laboratoriya: Kirish</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/labaratoriya/3-Labaratoriya ishi.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">2-Laboratoriya: Elektr zanjirlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/labaratoriya/4-Labaratoriya ishi.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">3-Laboratoriya: Yarimo'tkazgichlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/labaratoriya/5-Labaratoriya ishi.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">4-Laboratoriya: Tranzistorlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/labaratoriya/6-Labaratoriya ishi.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">5-Laboratoriya: Mantiqiy sxemalar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/labaratoriya/7-Labaratoriya ishi.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">6-Laboratoriya: Raqamli elektronika</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          </ul>
+        </details>
+        <details class="modern-card overflow-visible mb-6 reveal" id="maruzalar">
+          <summary class="flex items-center gap-4 p-6 cursor-pointer list-none select-none hover:bg-gray-50 transition rounded-2xl">
+            <div class="icon-box icon-box-blue flex-shrink-0"><i class="bx bx-book-open text-xl"></i></div>
+            <span class="text-lg font-bold text-gray-900">Maruzalar (21 ta)</span>
+            <span class="ml-auto w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 details-arrow"><i class="bx bx-chevron-down text-lg transition-transform"></i></span>
+          </summary>
+          <ul class="px-6 pb-6 space-y-1 border-t border-gray-100 pt-4">
+          <li>
+            <a href="assets/libs/maruzalar/1-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Maruza: Elektronika va sxemalar kirish</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/2 - 3- maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">2-Maruza: Elektr zanjirlar va asosiy qonunlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/2 - 3- maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">3-Maruza: O'zgaruvchan tok zanjirlari</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/4 - maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">4-Maruza: Yarimo'tkazgich elementlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/5 -maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">5-Maruza: Diodlar va to'g'irlagichlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/6.-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">6-Maruza: Tranzistorlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/7..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">7-Maruza: Kuchaytirgichlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/8.-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">8-Maruza: Operatsion kuchaytirgichlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/9.-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">9-Maruza: Mantiqiy elementlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/10.-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">10-Maruza: Triggerlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/11.-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">11-Maruza: Registrlar va hisoblagichlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/12..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">12-Maruza: Xotira qurilmalari</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/13..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">13-Maruza: Raqamli-analog o'zgartirgichlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/14..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">14-Maruza: Mikrokontrollerlar asoslari</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/15..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">15-Maruza: Sensor va aktyuatorlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/16..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">16-Maruza: Impuls manbalari</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/17..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">17-Maruza: Filtrlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/18..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">18-Maruza: Generatorlar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/19..-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">19-Maruza: Modulyatsiya va demodulyatsiya</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/20 -maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">20-Maruza: Aloqa qurilmalari</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/maruzalar/21-maruza.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">21-Maruza: Zamonaviy elektronika ilovalari</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          </ul>
+        </details>
+        <details class="modern-card overflow-visible mb-6 reveal" id="resurslar">
+          <summary class="flex items-center gap-4 p-6 cursor-pointer list-none select-none hover:bg-gray-50 transition rounded-2xl">
+            <div class="icon-box icon-box-green flex-shrink-0"><i class="bx bx-library text-xl"></i></div>
+            <span class="text-lg font-bold text-gray-900">Resurslar</span>
+            <span class="ml-auto w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 details-arrow"><i class="bx bx-chevron-down text-lg transition-transform"></i></span>
+          </summary>
+          <ul class="px-6 pb-6 space-y-1 border-t border-gray-100 pt-4">
+          <li>
+            <a href="assets/libs/resources/MAJMUA_EMVaT_READY++++++.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">Majmua: Elektronika va Sxemalar</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/resources/Elektr va magnetizm. Kamolov J, Ismoilov I.pdf" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">Majmua: Elektr va magnetizm</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/resources/elektrodinamika fure.pdf" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">Majmua: Elektrodinamika</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/resources/EMM_va_T_Oquv_lotin.pdf" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">Majmua: Elektronika o'quv qo'llanma</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          <li>
+            <a href="assets/libs/resources/Savelev_Умумий_физика_2тўп.pdf" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">Majmua: Umumiy fizika</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          </ul>
+        </details>
+        <details class="modern-card overflow-visible mb-6 reveal">
+          <summary class="flex items-center gap-4 p-6 cursor-pointer list-none select-none hover:bg-gray-50 transition rounded-2xl">
+            <div class="icon-box icon-box-red flex-shrink-0"><i class="bx bx-flag text-xl"></i></div>
+            <span class="text-lg font-bold text-gray-900">Ruscha materiallar</span>
+            <span class="ml-auto w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500"><i class="bx bx-chevron-down text-lg"></i></span>
+          </summary>
+          <div class="px-6 pb-6 border-t border-gray-100 pt-4 space-y-2">
+            <details class="border border-gray-100 rounded-xl mt-3">
+              <summary class="flex items-center gap-3 p-4 cursor-pointer list-none select-none text-gray-700 font-semibold hover:bg-gray-50 rounded-xl transition">
+                <i class="bx bx-chevron-right text-gray-400 text-lg"></i>Лекции (22 та)
+              </summary>
+              <ul class="px-4 pb-4 space-y-1 border-t border-gray-100 pt-3">
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№1.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№2.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">2-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№3.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">3-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№4.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">4-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№5.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">5-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№6.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">6-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№7.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">7-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№8.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">8-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№9.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">9-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№10.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">10-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№11.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">11-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№12.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">12-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№13.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">13-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№14.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">14-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№15.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">15-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№16.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">16-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№17.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">17-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№18.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">18-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№19.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">19-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№20.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">20-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№21.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">21-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/lectures/ЛЕКЦИЯ_№22.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">22-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              </ul>
+            </details>
+            <details class="border border-gray-100 rounded-xl mt-3">
+              <summary class="flex items-center gap-3 p-4 cursor-pointer list-none select-none text-gray-700 font-semibold hover:bg-gray-50 rounded-xl transition">
+                <i class="bx bx-chevron-right text-gray-400 text-lg"></i>Лабораторные работы (15 та)
+              </summary>
+              <ul class="px-4 pb-4 space-y-1 border-t border-gray-100 pt-3">
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№1.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№2.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">2-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№3.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">3-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№4.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">4-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№5.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">5-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№6.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">6-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№7.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">7-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№8.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">8-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№9.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">9-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№10.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">10-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№11.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">11-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№12.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">12-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№13.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">13-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№14.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">14-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/labaratoriya/Лабораторная_работа_№15.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">15-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              </ul>
+            </details>
+            <details class="border border-gray-100 rounded-xl mt-3">
+              <summary class="flex items-center gap-3 p-4 cursor-pointer list-none select-none text-gray-700 font-semibold hover:bg-gray-50 rounded-xl transition">
+                <i class="bx bx-chevron-right text-gray-400 text-lg"></i>Sirtqilar uchun materiallar
+              </summary>
+              <ul class="px-4 pb-4 space-y-1 border-t border-gray-100 pt-3">
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№1.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№2.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">2-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№3.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">3-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№4.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">4-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№5.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">5-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/ЛЕКЦИЯ_№6.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">6-Лекция</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№1.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№2.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">2-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/Лабораторная_работа_№3.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">3-Лабораторная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/Сам_раб_000.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Самостоятельная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/Сам_раб_№1.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">2-Самостоятельная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              <li>
+                <a href="assets/libs/rus-materials/sirtqi/Сам_раб_№2.docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+                  <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+                  <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">3-Самостоятельная работа</span>
+                  <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+                </a>
+              </li>
+              </ul>
+            </details>
+          </div>
+        </details>
+        <details class="modern-card overflow-visible mb-6 reveal" id="testlar">
+          <summary class="flex items-center gap-4 p-6 cursor-pointer list-none select-none hover:bg-gray-50 transition rounded-2xl">
+            <div class="icon-box icon-box-yellow flex-shrink-0"><i class="bx bx-check-shield text-xl"></i></div>
+            <span class="text-lg font-bold text-gray-900">Testlar</span>
+            <span class="ml-auto w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 details-arrow"><i class="bx bx-chevron-down text-lg transition-transform"></i></span>
+          </summary>
+          <ul class="px-6 pb-6 space-y-1 border-t border-gray-100 pt-4">
+          <li>
+            <a href="assets/libs/tests/EMvaT_TEST_UZ (200 ta ).docx" download class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition group">
+              <i class="bx bx-file-blank text-gray-400 group-hover:text-indigo-500 transition text-lg flex-shrink-0"></i>
+              <span class="text-gray-700 group-hover:text-indigo-700 transition text-sm">1-Test: Elektronika va sxemalar (200 ta)</span>
+              <i class="bx bx-download text-gray-300 group-hover:text-indigo-400 transition ml-auto text-sm"></i>
+            </a>
+          </li>
+          </ul>
+        </details>
+
+    </div>
+  </section>
+
+  <footer class="footer-modern">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="nav-logo text-xl flex items-center gap-2 mb-4">
+            <i class="bx bx-chip text-2xl" style="color:#f97316"></i>
+            <span>Elektronika</span>
           </a>
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-youtube text-2xl"></i>
-          </a>
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-github text-2xl"></i>
-          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Zamonaviy elektronika va sxemalar bo'yicha o'zbek tilidagi eng yaxshi o'quv platformasi.</p>
+          <div class="flex gap-3">
+            <a href="#" class="social-btn"><i class="bx bxl-telegram text-lg"></i></a>
+            <a href="#" class="social-btn"><i class="bx bxl-youtube text-lg"></i></a>
+            <a href="#" class="social-btn"><i class="bx bxl-github text-lg"></i></a>
+          </div>
+        </div>
+        <!-- Navigation -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Navigatsiya</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="footer-link">Bosh sahifa</a></li>
+            <li><a href="material.html" class="footer-link">Materiallar</a></li>
+            <li><a href="video.html" class="footer-link">Video darslar</a></li>
+            <li><a href="about.html" class="footer-link">Haqida</a></li>
+          </ul>
+        </div>
+        <!-- Modules -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Modullar</h4>
+          <ul class="space-y-2">
+            <li><a href="material.html" class="footer-link">Modul 1: Elektr zanjirlar</a></li>
+            <li><a href="material.html" class="footer-link">Modul 2: Yarimo'tkazgichlar</a></li>
+            <li><a href="material.html" class="footer-link">Modul 3: Raqamli elektronika</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </body>
+      <div class="border-t border-white/10 pt-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 Elektronika va Sxemalar Darslik &mdash; Muallif: Umurzokova Sevinch Komiljonovna, TT 22-11</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nb = document.getElementById('navbar');
+      if (window.scrollY > 20) nb.classList.add('scrolled');
+      else nb.classList.remove('scrolled');
+    });
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('menu');
+      const icon = document.getElementById('menu-icon');
+      menu.classList.toggle('hidden');
+      icon.classList.toggle('bx-menu');
+      icon.classList.toggle('bx-x');
+    });
+  </script>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
 </html>

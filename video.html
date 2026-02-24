@@ -1,758 +1,308 @@
 <!DOCTYPE html>
-<html lang="uz" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Darslar - Elektronika va Sxemalar</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .gradient-overlay {
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.7),
-          rgba(0, 0, 0, 0.4)
-        );
-      }
-      .video-card:hover .video-thumbnail {
-        transform: scale(1.05);
-      }
-      .video-thumbnail {
-        transition: transform 0.5s ease;
-      }
-      .play-button {
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(5px);
-      }
-    </style>
-  </head>
-  <body class="font-sans bg-gray-100 text-gray-800">
-    <!-- Navigation -->
-    <nav
-      class="sticky top-0 left-0 right-0 bg-gray-800 py-2 md:py-0 px-5 lg:px-10 shadow-lg z-50 flex justify-between items-center"
-    >
-      <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
-        <a
-          href="index.html"
-          class="text-white text-lg font-bold flex items-center"
-        >
-          <i class="bx bx-home text-2xl mr-2"></i> Elektronika
-        </a>
-        <button
-          id="menu-toggle"
-          class="text-white md:hidden focus:outline-none absolute right-10"
-        >
-          <i id="menu-icon" class="bx bx-menu text-2xl"></i>
-        </button>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/modern.css" />
+  <title>Video Darslar - Elektronika va Sxemalar</title>
+</head>
+<body>
+  <nav id="navbar" class="nav-modern fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+      <a href="index.html" class="nav-logo flex items-center gap-2">
+        <i class="bx bx-chip text-2xl" style="color:#f97316"></i>
+        <span>Elektronika</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="nav-link flex items-center gap-2"><i class="bx bx-home"></i>Bosh sahifa</a>
+        <a href="material.html" class="nav-link flex items-center gap-2"><i class="bx bx-file"></i>Materiallar</a>
+        <a href="video.html" class="nav-link active flex items-center gap-2"><i class="bx bx-video"></i>Video darslar</a>
+        <a href="about.html" class="nav-link flex items-center gap-2"><i class="bx bx-info-circle"></i>Haqida</a>
       </div>
-      <ul
-        id="menu"
-        class="absolute top-full left-0 w-full bg-gray-800 text-white flex-col space-y-2 px-4 py-4 opacity-0 pointer-events-none md:pointer-events-auto md:opacity-100 justify-end hidden md:flex md:static md:flex-row md:space-y-0 md:space-x-4 md:mt-0 md:bg-transparent transition-all duration-300 transform md:translate-y-0 -translate-y-2 z-40"
-      >
-        <li>
-          <a
-            href="index.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-home mr-2"></i> Bosh sahifa</a
-          >
-        </li>
-        <li>
-          <a
-            href="material.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-file mr-2"></i> Materiallar</a
-          >
-        </li>
-        <li>
-          <a
-            href="video.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-video mr-2"></i> Video darslar</a
-          >
-        </li>
-        <li>
-          <a
-            href="about.html"
-            class="block px-4 py-2 rounded hover:bg-orange-500 transition flex items-center"
-            ><i class="bx bx-info-circle mr-2"></i> Haqida</a
-          >
-        </li>
-      </ul>
-    </nav>
-
-    <script>
-      const menuToggle = document.getElementById("menu-toggle")
-      const menu = document.getElementById("menu")
-      const menuIcon = document.getElementById("menu-icon")
-
-      menuToggle.addEventListener("click", () => {
-        const isHidden = menu.classList.contains("opacity-0")
-
-        if (isHidden) {
-          menu.classList.remove(
-            "opacity-0",
-            "pointer-events-none",
-            "-translate-y-2",
-            "hidden"
-          )
-          menu.classList.add("opacity-100", "translate-y-0")
-          menuIcon.classList.remove("bx-menu")
-          menuIcon.classList.add("bx-x")
-        } else {
-          menu.classList.remove("opacity-100", "translate-y-0")
-          menu.classList.add(
-            "opacity-0",
-            "pointer-events-none",
-            "-translate-y-2"
-          )
-          setTimeout(() => {
-            menu.classList.add("hidden")
-          }, 300)
-          menuIcon.classList.remove("bx-x")
-          menuIcon.classList.add("bx-menu")
-        }
-      })
-    </script>
-
-    <!-- Hero Section -->
-    <header class="relative h-[40vh] md:h-[60vh] flex items-center justify-center text-white text-center overflow-hidden">
-      <div class="absolute inset-0">
-        <img
-          src="assets/images/video-bg.jpg"
-          alt="Elektronika va Sxemalar darslari"
-          class="w-full h-full object-cover brightness-75"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80"></div>
+      <button id="menu-toggle" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition">
+        <i id="menu-icon" class="bx bx-menu text-2xl"></i>
+      </button>
+    </div>
+    <div id="menu" class="mobile-menu hidden md:hidden border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+          <a href="index.html" class="nav-link flex items-center gap-2 px-4 py-3"><i class="bx bx-home"></i>Bosh sahifa</a>
+          <a href="material.html" class="nav-link flex items-center gap-2 px-4 py-3"><i class="bx bx-file"></i>Materiallar</a>
+          <a href="video.html" class="nav-link active flex items-center gap-2 px-4 py-3"><i class="bx bx-video"></i>Video darslar</a>
+          <a href="about.html" class="nav-link flex items-center gap-2 px-4 py-3"><i class="bx bx-info-circle"></i>Haqida</a>
       </div>
-    
-      <div class="relative z-10 px-4 sm:px-6 lg:px-8 max-w-3xl">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-          Video Darslar
-        </h1>
-        <p class="mt-4 text-lg sm:text-xl md:text-2xl text-gray-300">
-          Elektronika va sxemalar haqida chuqur bilim olish
-        </p>
-        <div class="mt-6 flex justify-center">
-          <a
-            href="#video-section"
-            class="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition duration-300"
-          >
-            <i class="bx bx-play-circle text-2xl mr-2"></i> Darslarni Ko‘rish
-          </a>
-        </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="padding-top:var(--nav-height)">
+    <div class="absolute inset-0">
+      <img src="assets/images/video-bg.jpg" alt="Video Darslar" class="w-full h-full object-cover" />
+      <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(15,23,42,0.85) 0%,rgba(30,27,75,0.80) 100%)"></div>
+    </div>
+    <div class="hero-grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-24 text-center">
+      <span class="section-badge" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.2)">YouTube Darslar</span>
+      <h1 class="text-4xl md:text-6xl font-black text-white mt-4 mb-6">
+        Video <span class="gradient-text-warm">Darslar</span>
+      </h1>
+      <p class="text-lg text-white/75 max-w-xl mx-auto mb-8">9 ta video dars orqali elektromagnitizm va elektronikani vizual tarzda o'rganing</p>
+      <a href="#video-section" class="btn-primary"><i class="bx bx-play-circle text-xl"></i>Darslarni boshlash</a>
+    </div>
+  </section>
+
+  <!-- Videos Grid -->
+  <section id="video-section" class="py-24" style="background:var(--bg)">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16 reveal">
+        <span class="section-badge">Barcha darslar</span>
+        <h2 class="section-title mt-3">9 ta Video Dars</h2>
+        <p class="section-subtitle">Har bir mavzu bo'yicha batafsil video tushuntirish</p>
+        <div class="section-divider"></div>
       </div>
-    </header>
-    
-    <!-- Main Content -->
-    <section id="video-section" class="py-12 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">
-            Barcha Video Darslar
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Elektronika va sxemalar haqida barcha video
-            darslarimiz. Har bir dars chuqur bilim olish uchun maxsus
-            tayyorlangan.
-          </p>
-        </div>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-[5%]"
-        >
-          <!-- 1-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=GMCtmS35kaw"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/GMCtmS35kaw/maxresdefault.jpg"
-                    alt="1-dars: Kirish"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="video-card-modern reveal">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/GMCtmS35kaw/maxresdefault.jpg" alt="1-dars: Kirish" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=GMCtmS35kaw" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
               </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm"
-                  >Yangi</span
-                >
-              </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                1-dars: Kirish
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Elektronika va sxemalarning asosiy tushunchalarini
-                o'rganing.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center">
-                  <i class="bx bx-time mr-1"></i> 45 daqiqa
-                </span>
-                <a
-                  href="https://www.youtube.com/watch?v=GMCtmS35kaw"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko'rish</span>
-                  <i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Kirish</span>
           </div>
-
-          <!-- 2-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=-K40FGWIVXw"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/-K40FGWIVXw/maxresdefault.jpg"
-                    alt="2-dars: Maksvell Tenglamalari"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm"
-                  >Muhim</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                2-dars: Maksvell Tenglamalari
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Ohm qonuni va Kirxgof qonunlarini tushuning.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center">
-                  <i class="bx bx-time mr-1"></i> 50 daqiqa
-                </span>
-                <a
-                  href="https://www.youtube.com/watch?v=-K40FGWIVXw"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko'rish</span>
-                  <i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=eO43TlUT1Ms"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/eO43TlUT1Ms/maxresdefault.jpg"
-                    alt="3-dars: Yarimo'tkazgichlar"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm"
-                  >Asosiy</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                3-dars: Yarimo'tkazgichlar
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Yarimo'tkazgich elementlar va ularning
-                qo'llanilishi haqida bilib oling.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center">
-                  <i class="bx bx-time mr-1"></i> 55 daqiqa
-                </span>
-                <a
-                  href="https://www.youtube.com/watch?v=eO43TlUT1Ms"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko'rish</span>
-                  <i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- 4-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=JFw8iQiI1cw"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/JFw8iQiI1cw/maxresdefault.jpg"
-                    alt="4-dars: Tranzistorlar"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm"
-                  >Kengaytirilgan</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                4-dars: Tranzistorlar
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Tranzistorlar va ularning sxemalardagi roli bilan
-              tanishing.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center"
-                  ><i class="bx bx-time mr-1"></i> 48 daqiqa</span
-                >
-                <a
-                  href="https://www.youtube.com/watch?v=JFw8iQiI1cw"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko‘rish</span
-                  ><i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=3il8Omkhzxc"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/3il8Omkhzxc/maxresdefault.jpg"
-                    alt="5-dars: Radioto'lqinlar"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm"
-                  >Amaliy</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                5-dars: Radioto'lqinlar
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Radioto‘lqinlarning ishlash tamoyillari va
-                telekommunikatsiyadagi roli.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center"
-                  ><i class="bx bx-time mr-1"></i> 40 daqiqa</span
-                >
-                <a
-                  href="https://www.youtube.com/watch?v=3il8Omkhzxc"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko‘rish</span
-                  ><i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=v0UyAewFl9Y"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/v0UyAewFl9Y/maxresdefault.jpg"
-                    alt="6-dars: Mikroto'lqinlar"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-red-500 text-white px-3 py-1 rounded-full text-sm"
-                  >Tajriba</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                6-dars: Mikroto'lqinlar
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Mikroto‘lqinlar va ularning maishiy texnika va kosmos sohasidagi
-                qo‘llanilishi.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center"
-                  ><i class="bx bx-time mr-1"></i> 42 daqiqa</span
-                >
-                <a
-                  href="https://www.youtube.com/watch?v=v0UyAewFl9Y"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko‘rish</span
-                  ><i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 7-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=2xHDaxly8Zw"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/2xHDaxly8Zw/maxresdefault.jpg"
-                    alt="7-dars: Infraqizil Nurlanish"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm"
-                  >Qiziqarli</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                7-dars: Infraqizil Nurlanish
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Infraqizil nurlanish va ularning sensorlar, tibbiyot va
-                xavfsizlikdagi ahamiyati.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center"
-                  ><i class="bx bx-time mr-1"></i> 38 daqiqa</span
-                >
-                <a
-                  href="https://www.youtube.com/watch?v=2xHDaxly8Zw"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko‘rish</span
-                  ><i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 8-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=ow26-5UirSc"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/ow26-5UirSc/maxresdefault.jpg"
-                    alt="8-dars: Ko‘rinadigan Yorug‘lik"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-blue-700 text-white px-3 py-1 rounded-full text-sm"
-                  >Asosiy</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                8-dars: Ko‘rinadigan Yorug‘lik
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Yorug‘lik spektrining inson ko‘radi deb hisoblangan qismini
-                o‘rganish.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center"
-                  ><i class="bx bx-time mr-1"></i> 36 daqiqa</span
-                >
-                <a
-                  href="https://www.youtube.com/watch?v=ow26-5UirSc"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko‘rish</span
-                  ><i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 9-dars -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300"
-          >
-            <div class="relative">
-              <a
-                href="https://www.youtube.com/watch?v=_iTUaDp-FeI"
-                target="_blank"
-                class="block"
-              >
-                <div class="video-thumbnail h-[200px] overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/_iTUaDp-FeI/maxresdefault.jpg"
-                    alt="9-dars: Ultrabinafsha va Rentgen"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="play-button w-16 h-16 rounded-full flex items-center justify-center"
-                  >
-                    <i class="bx bx-play text-white text-4xl"></i>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute top-4 right-4">
-                <span
-                  class="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm"
-                  >Maxsus</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                9-dars: Ultrabinafsha va Rentgen
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Ultrabinafsha va rentgen nurlari haqida bilib oling va ularning
-                tibbiyotdagi qo‘llanilishini tushuning.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 flex items-center"
-                  ><i class="bx bx-time mr-1"></i> 50 daqiqa</span
-                >
-                <a
-                  href="https://www.youtube.com/watch?v=_iTUaDp-FeI"
-                  target="_blank"
-                  class="text-orange-500 hover:text-orange-600 flex items-center font-medium"
-                >
-                  <span>YouTube'da ko‘rish</span
-                  ><i class="bx bx-right-arrow-alt ml-1"></i>
-                </a>
-              </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">1-dars: Kirish</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">Elektronika va sxemalar faniga kirish. Asosiy tushunchalar va o'quv rejasi.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>12:34</span>
+              <a href="https://www.youtube.com/watch?v=GMCtmS35kaw" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Video Player Modal (Hidden by default) -->
-    <div
-      id="video-modal"
-      class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center"
-    >
-      <div class="relative w-full max-w-4xl mx-4">
-        <button
-          id="close-modal"
-          class="absolute -top-10 right-0 text-white text-3xl"
-        >
-          <i class="bx bx-x"></i>
-        </button>
-        <div class="aspect-w-16 aspect-h-9">
-          <iframe
-            id="modal-video"
-            class="w-full h-full"
-            src=""
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+        <div class="video-card-modern reveal delay-200">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/-K40FGWIVXw/maxresdefault.jpg" alt="2-dars: Maksvell Tenglamalari" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=-K40FGWIVXw" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Nazariya</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">2-dars: Maksvell Tenglamalari</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">Elektromagnit maydon nazariyasining asosi — Maksvell tenglamalari.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>18:22</span>
+              <a href="https://www.youtube.com/watch?v=-K40FGWIVXw" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-modern reveal delay-300">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/eO43TlUT1Ms/maxresdefault.jpg" alt="3-dars: Yarimo'tkazgichlar" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=eO43TlUT1Ms" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Yarim o'tkazgich</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">3-dars: Yarimo'tkazgichlar</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">P-N o'tish, diodlar va yarimo'tkazgich materiallar haqida.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>15:10</span>
+              <a href="https://www.youtube.com/watch?v=eO43TlUT1Ms" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-modern reveal">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/JFw8iQiI1cw/maxresdefault.jpg" alt="4-dars: Tranzistorlar" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=JFw8iQiI1cw" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Tranzistor</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">4-dars: Tranzistorlar</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">BJT va MOSFET tranzistorlar: ishlash printsiplari va sxemalar.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>20:05</span>
+              <a href="https://www.youtube.com/watch?v=JFw8iQiI1cw" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-modern reveal delay-200">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/3il8Omkhzxc/maxresdefault.jpg" alt="5-dars: Radioto'lqinlar" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=3il8Omkhzxc" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">To'lqinlar</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">5-dars: Radioto'lqinlar</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">Radioto'lqinlar tabiatı, tarqalishi va amaliy qo'llanilishi.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>14:48</span>
+              <a href="https://www.youtube.com/watch?v=3il8Omkhzxc" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-modern reveal delay-300">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/v0UyAewFl9Y/maxresdefault.jpg" alt="6-dars: Mikroto'lqinlar" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=v0UyAewFl9Y" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Mikroto'lqin</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">6-dars: Mikroto'lqinlar</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">Mikroto'lqin texnologiyasi va uning sanoatdagi o'rni.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>16:30</span>
+              <a href="https://www.youtube.com/watch?v=v0UyAewFl9Y" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-modern reveal">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/2xHDaxly8Zw/maxresdefault.jpg" alt="7-dars: Infraqizil Nurlanish" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=2xHDaxly8Zw" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Optik</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">7-dars: Infraqizil Nurlanish</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">IQ nurlanish spektri, sensorlar va amaliy qurilmalar.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>13:55</span>
+              <a href="https://www.youtube.com/watch?v=2xHDaxly8Zw" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-modern reveal delay-200">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/ow26-5UirSc/maxresdefault.jpg" alt="8-dars: Ko'rinadigan Yorug'lik" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=ow26-5UirSc" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Optik</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">8-dars: Ko'rinadigan Yorug'lik</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">Ko'rinadigan yorug'lik diapazoni va optik elektronika.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>11:20</span>
+              <a href="https://www.youtube.com/watch?v=ow26-5UirSc" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
+        </div>
+        <div class="video-card-modern reveal delay-300">
+          <div class="relative overflow-hidden" style="aspect-ratio:16/9">
+            <img src="https://img.youtube.com/vi/_iTUaDp-FeI/maxresdefault.jpg" alt="9-dars: Ultrabinafsha va Rentgen" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="play-overlay">
+              <a href="https://www.youtube.com/watch?v=_iTUaDp-FeI" target="_blank" rel="noopener" class="play-icon-btn">
+                <i class="bx bx-play text-3xl text-white ml-1"></i>
+              </a>
+            </div>
+            <span class="absolute top-3 left-3 text-xs font-bold text-white bg-indigo-600 px-2 py-1 rounded-full">Nurlanish</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-base font-bold text-gray-900 mb-2 leading-snug">9-dars: Ultrabinafsha va Rentgen</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-4">UV va rentgen nurlanishning xossalari va qo'llanilishi.</p>
+            <div class="flex items-center justify-between">
+              <span class="flex items-center gap-1 text-gray-400 text-xs"><i class="bx bx-time"></i>17:45</span>
+              <a href="https://www.youtube.com/watch?v=_iTUaDp-FeI" target="_blank" rel="noopener" class="btn-primary text-xs py-2 px-4"><i class="bx bx-play"></i>Ko'rish</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <script>
-      // Video modal functionality
-      const videoLinks = document.querySelectorAll(".video-thumbnail")
-      const modal = document.getElementById("video-modal")
-      const modalVideo = document.getElementById("modal-video")
-      const closeModal = document.getElementById("close-modal")
-
-      videoLinks.forEach((link, index) => {
-        link.addEventListener("click", () => {
-          const videoIds = [
-            "GMCtmS35kaw",
-            "-K40FGWIVXw",
-            "eO43TlUT1Ms",
-            "JFw8iQiI1cw",
-            "3il8Omkhzxc",
-            "v0UyAewFl9Y",
-            "2xHDaxly8Zw",
-            "ow26-5UirSc",
-            "_iTUaDp-FeI",
-          ]
-
-          modalVideo.src = `https://www.youtube.com/embed/${videoIds[index]}?autoplay=1`
-          modal.classList.remove("hidden")
-          document.body.style.overflow = "hidden"
-        })
-      })
-
-      closeModal.addEventListener("click", () => {
-        modal.classList.add("hidden")
-        modalVideo.src = ""
-        document.body.style.overflow = "auto"
-      })
-
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.classList.add("hidden")
-          modalVideo.src = ""
-          document.body.style.overflow = "auto"
-        }
-      })
-    </script>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-8">
-      <div class="container mx-auto px-4">
-        <p class="text-xl mb-4">
-          &copy; 2025 Elektronika va Sxemalar Darslik | Muallif: Umurzokova Sevinch Komiljonovna, TT 22-11
-        </p>
-        <div class="flex justify-center space-x-4">
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-telegram text-2xl"></i>
+  <footer class="footer-modern">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="nav-logo text-xl flex items-center gap-2 mb-4">
+            <i class="bx bx-chip text-2xl" style="color:#f97316"></i>
+            <span>Elektronika</span>
           </a>
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-youtube text-2xl"></i>
-          </a>
-          <a href="#" class="text-white hover:text-orange-500 transition">
-            <i class="bx bxl-github text-2xl"></i>
-          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Zamonaviy elektronika va sxemalar bo'yicha o'zbek tilidagi eng yaxshi o'quv platformasi.</p>
+          <div class="flex gap-3">
+            <a href="#" class="social-btn"><i class="bx bxl-telegram text-lg"></i></a>
+            <a href="#" class="social-btn"><i class="bx bxl-youtube text-lg"></i></a>
+            <a href="#" class="social-btn"><i class="bx bxl-github text-lg"></i></a>
+          </div>
+        </div>
+        <!-- Navigation -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Navigatsiya</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="footer-link">Bosh sahifa</a></li>
+            <li><a href="material.html" class="footer-link">Materiallar</a></li>
+            <li><a href="video.html" class="footer-link">Video darslar</a></li>
+            <li><a href="about.html" class="footer-link">Haqida</a></li>
+          </ul>
+        </div>
+        <!-- Modules -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Modullar</h4>
+          <ul class="space-y-2">
+            <li><a href="material.html" class="footer-link">Modul 1: Elektr zanjirlar</a></li>
+            <li><a href="material.html" class="footer-link">Modul 2: Yarimo'tkazgichlar</a></li>
+            <li><a href="material.html" class="footer-link">Modul 3: Raqamli elektronika</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </body>
+      <div class="border-t border-white/10 pt-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 Elektronika va Sxemalar Darslik &mdash; Muallif: Umurzokova Sevinch Komiljonovna, TT 22-11</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nb = document.getElementById('navbar');
+      if (window.scrollY > 20) nb.classList.add('scrolled');
+      else nb.classList.remove('scrolled');
+    });
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('menu');
+      const icon = document.getElementById('menu-icon');
+      menu.classList.toggle('hidden');
+      icon.classList.toggle('bx-menu');
+      icon.classList.toggle('bx-x');
+    });
+  </script>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
 </html>
